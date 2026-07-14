@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moh. Jevon Attaillah — Personal Hub</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #0f1523;
+      --border: rgba(148, 163, 184, 0.10);
+      --indigo: #6366f1;
+      --cyan: #22d3ee;
+      --violet: #a855f7;
+    }
+
+    * { 
+      scrollbar-width: thin; 
+      scrollbar-color: #334155 transparent; 
+    }
+
+    body {
+      background-color: var(--bg);
+      font-family: 'Inter', sans-serif;
+      background-image:
+        radial-gradient(circle at 15% 0%, rgba(99, 102, 241, 0.14), transparent 40%),
+        radial-gradient(circle at 85% 20%, rgba(34, 211, 238, 0.10), transparent 35%),
+        radial-gradient(circle at 50% 100%, rgba(168, 85, 247, 0.08), transparent 45%);
+    }
+
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
+      border: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .glass-hover { 
+      transition: transform .35s cubic-bezier(.2, .8, .2, 1), border-color .35s ease, box-shadow .35s ease; 
+    }
+
+    .glass-hover:hover {
+      transform: translateY(-4px);
+      border-color: rgba(148, 163, 184, 0.25);
+      box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+    }
+
+    .cta-primary {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(115deg, #4f46e5, #6366f1 40%, #22d3ee);
+      background-size: 200% 200%;
+      transition: background-position .6s ease, transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s ease;
+    }
+
+    .cta-primary:hover {
+      background-position: 100% 0%;
+      transform: translateY(-3px) scale(1.015);
+      box-shadow: 0 18px 40px -12px rgba(99, 102, 241, 0.55);
+    }
+
+    .cta-secondary {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(115deg, #a855f7, #d946ef 45%, #f472b6);
+      background-size: 200% 200%;
+      transition: background-position .6s ease, transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s ease;
+    }
+
+    .cta-secondary:hover {
+      background-position: 100% 0%;
+      transform: translateY(-3px) scale(1.015);
+      box-shadow: 0 18px 40px -12px rgba(217, 70, 239, 0.5);
+    }
+
+    .social-tile { 
+      transition: transform .3s cubic-bezier(.2, .8, .2, 1), border-color .3s ease, background .3s ease; 
+    }
+
+    .social-tile:hover { 
+      transform: translateY(-3px); 
+      border-color: rgba(99, 102, 241, 0.5); 
+      background: rgba(99, 102, 241, 0.08); 
+    }
+
+    .badge {
+      transition: transform .25s ease, border-color .25s ease, color .25s ease, background .25s ease;
+    }
+
+    .badge:hover {
+      transform: translateY(-2px);
+      border-color: rgba(34, 211, 238, 0.6);
+      color: #67e8f9;
+      background: rgba(34, 211, 238, 0.08);
+    }
+
+    .avatar-ring {
+      background: conic-gradient(from 180deg, #6366f1, #22d3ee, #a855f7, #6366f1);
+      animation: spin 7s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .grad-text {
+      background: linear-gradient(90deg, #a5b4fc, #67e8f9 55%, #c4b5fd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section-eyebrow { letter-spacing: .18em; }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp .8s cubic-bezier(.2, .8, .2, 1) forwards;
+    }
+
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .avatar-ring { animation: none; }
+      .fade-up { animation: none; opacity: 1; transform: none; }
+    }
+
+    ::selection { background: rgba(99, 102, 241, 0.35); }
+  </style>
+</head>
+
+<body class="text-slate-200 min-h-screen antialiased">
+
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 py-14 sm:py-20">
+
+    <!-- ============ HERO ============ -->
+    <header class="flex flex-col items-center text-center fade-up" style="animation-delay:.05s">
+      <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-[3px] avatar-ring mb-6">
+        <div class="w-full h-full rounded-full bg-[#0a0e17] p-[3px]">
+          <img src="https://api.dicebear.com/8.x/thumbs/svg?seed=JevonAttaillah&backgroundColor=0f1523"
+               alt="Foto Profil Moh. Jevon Attaillah"
+               class="w-full h-full rounded-full object-cover">
+        </div>
+      </div>
+
+      <p class="font-mono text-xs sm:text-sm text-cyan-300/80 section-eyebrow uppercase mb-3">
+        NIM 362458302035 · Politeknik Negeri Banyuwangi
+      </p>
+
+      <h1 class="font-display text-4xl sm:text-6xl font-bold tracking-tight grad-text mb-4">
+        MOH. JEVON ATTAILLAH
+      </h1>
+
+      <p class="text-slate-400 text-sm sm:text-base font-medium mb-8">
+        Web Developer <span class="text-slate-600 mx-1.5">·</span> Product Owner <span class="text-slate-600 mx-1.5">·</span> Software Engineering Enthusiast
+      </p>
+
+      <!-- Tombol Utama -->
+      <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <a href="portfolio.html" class="cta-primary group rounded-2xl px-6 py-5 flex items-center justify-center gap-3 text-white font-semibold shadow-lg shadow-indigo-950/40">
+          <i class="fa-solid fa-folder-open text-lg"></i>
+          <span>Lihat Portofolio</span>
+          <i class="fa-solid fa-arrow-right text-sm opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i>
+        </a>
+        <a href="#sertifikasi" class="cta-secondary group rounded-2xl px-6 py-5 flex items-center justify-center gap-3 text-white font-semibold shadow-lg shadow-fuchsia-950/40">
+          <i class="fa-solid fa-award text-lg"></i>
+          <span>Sertifikasi &amp; Lisensi</span>
+          <i class="fa-solid fa-arrow-right text-sm opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i>
+        </a>
+      </div>
+
+      <!-- Sosial -->
+      <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <a href="https://github.com/" target="_blank" rel="noopener" class="social-tile glass rounded-xl px-5 py-3.5 flex items-center justify-center gap-2.5 text-sm font-medium border border-white/5">
+          <i class="fa-brands fa-github text-base"></i> GitHub Profile
+        </a>
+        <a href="mailto:mohjevonattaillah@gmail.com" class="social-tile glass rounded-xl px-5 py-3.5 flex items-center justify-center gap-2.5 text-sm font-medium border border-white/5">
+          <i class="fa-solid fa-envelope text-base"></i> Email Saya
+        </a>
+      </div>
+    </header>
+
+    <!-- ============ TENTANG SAYA ============ -->
+    <section class="mt-16 sm:mt-24 fade-up" style="animation-delay:.1s">
+      <div class="glass rounded-3xl p-7 sm:p-10">
+        <p class="font-mono text-xs text-indigo-300/80 section-eyebrow uppercase mb-3">
+          <i class="fa-solid fa-user mr-1.5"></i> Tentang Saya
+        </p>
+        <p class="text-slate-300 leading-relaxed text-[15px] sm:text-base">
+          Saya adalah mahasiswa Program Studi Teknologi Rekayasa Perangkat Lunak di Politeknik Negeri Banyuwangi yang memiliki minat besar dalam pengembangan sistem informasi. Saat ini, saya aktif sebagai <span class="text-cyan-300 font-medium">Ketua Tim Pengembang dan Product Owner</span> di tim <span class="text-indigo-300 font-medium">Javas Navasena</span>. Saya memiliki pengalaman dalam memimpin dan mengembangkan proyek berskala nyata, salah satunya adalah "Sistem Digitalisasi Rumah Kebangsaan Banyuwangi", sebuah portal informasi dan dokumentasi berbasis web yang mengimplementasikan arsitektur MVC menggunakan framework Laravel. Saya terbiasa menjembatani komunikasi dengan mitra (stakeholder), merancang basis data, serta menangani pengembangan lini Frontend maupun Backend.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ PROYEK UNGGULAN ============ -->
+    <section id="portofolio" class="mt-16 sm:mt-20 scroll-mt-8 fade-up" style="animation-delay:.15s">
+      <div class="flex items-center gap-3 mb-6">
+        <i class="fa-solid fa-briefcase text-indigo-400"></i>
+        <h2 class="font-display text-2xl sm:text-3xl font-semibold text-white">Proyek Unggulan</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-5">
+        <article class="glass glass-hover rounded-2xl p-6 sm:p-7 flex flex-col">
+          <div class="flex items-start justify-between mb-4">
+            <span class="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-400/20 border border-indigo-400/20 flex items-center justify-center">
+              <i class="fa-solid fa-building-columns text-cyan-300"></i>
+            </span>
+            <span class="text-[11px] font-mono uppercase tracking-wider text-indigo-300/70 bg-indigo-500/10 border border-indigo-400/20 rounded-full px-3 py-1">Tim Javas Navasena</span>
+          </div>
+          <h3 class="font-display text-lg font-semibold text-white mb-1.5">Portal Informasi &amp; Dokumentasi Rumah Kebangsaan Banyuwangi</h3>
+          <p class="text-xs font-medium text-cyan-300/90 mb-3">Ketua Tim / Product Owner / Full-stack Developer</p>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Memimpin pengembangan sistem CMS portal web terintegrasi berbasis arsitektur MVC (Laravel &amp; MySQL) dengan fitur manajemen mandiri dan moderasi publik.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-5">
+            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400">Laravel</span>
+            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400">MVC</span>
+            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400">MySQL</span>
+          </div>
+          <a href="portfolio.html" class="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 hover:text-cyan-200 transition-colors w-fit">
+            <i class="fa-solid fa-swatchbook"></i>
+            <span>Lihat Studi Kasus Desain UI/UX</span>
+            <i class="fa-solid fa-arrow-right text-xs opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ SERTIFIKASI ============ -->
+    <section id="sertifikasi" class="mt-16 sm:mt-20 scroll-mt-8 fade-up" style="animation-delay:.2s">
+      <div class="flex items-center gap-3 mb-6">
+        <i class="fa-solid fa-award text-fuchsia-400"></i>
+        <h2 class="font-display text-2xl sm:text-3xl font-semibold text-white">Sertifikasi &amp; Lisensi</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <a href="cjwd.png" target="_blank" rel="noopener" class="glass glass-hover rounded-2xl p-6 flex items-center gap-4 group">
+          <span class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-indigo-950/40">
+            <i class="fa-solid fa-certificate text-white"></i>
+          </span>
+          <div class="flex-1">
+            <h3 class="font-semibold text-white text-sm sm:text-base">Certified Junior Web Developer</h3>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">BNSP</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square text-slate-500 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+        </a>
+        <a href="cjmd.png" target="_blank" rel="noopener" class="glass glass-hover rounded-2xl p-6 flex items-center gap-4 group">
+          <span class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-fuchsia-500 to-violet-400 flex items-center justify-center shadow-lg shadow-fuchsia-950/40">
+            <i class="fa-solid fa-certificate text-white"></i>
+          </span>
+          <div class="flex-1">
+            <h3 class="font-semibold text-white text-sm sm:text-base">Certified Junior Mobile Developer</h3>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">BNSP</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square text-slate-500 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ KEAHLIAN & TEKNOLOGI ============ -->
+    <section class="mt-16 sm:mt-20 fade-up" style="animation-delay:.25s">
+      <div class="flex items-center gap-3 mb-6">
+        <i class="fa-solid fa-layer-group text-cyan-400"></i>
+        <h2 class="font-display text-2xl sm:text-3xl font-semibold text-white">Keahlian &amp; Teknologi</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="glass rounded-2xl p-6">
+          <p class="font-mono text-[11px] uppercase tracking-wider text-indigo-300/80 mb-4">Web Development</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">PHP</span>
+            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Laravel</span>
+            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Blade</span>
+            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">MVC</span>
+            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">MySQL</span>
+          </div>
+        </div>
+
+        <div class="glass rounded-2xl p-6">
+          <p class="font-mono text-[11px] uppercase tracking-wider text-cyan-300/80 mb-4">Infrastructure</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Linux</span>
+            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Nginx</span>
+            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">MariaDB</span>
+            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Multi-VM (VirtualBox)</span>
+          </div>
+        </div>
+
+        <div class="glass rounded-2xl p-6">
+          <p class="font-mono text-[11px] uppercase tracking-wider text-fuchsia-300/80 mb-4">Design &amp; Security</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Figma (UI/UX Wireframing)</span>
+            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Burp Suite</span>
+            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Web Proxy Configuration</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="mt-20 sm:mt-24 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono fade-up" style="animation-delay:.3s">
+      <p>© 2026 Moh. Jevon Attaillah — Politeknik Negeri Banyuwangi</p>
+      <a href="mailto:mohjevonattaillah@gmail.com" class="hover:text-cyan-300 transition-colors">mohjevonattaillah@gmail.com</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>
