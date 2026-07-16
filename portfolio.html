@@ -59,13 +59,12 @@
     }
 
     .shot {
-      aspect-ratio: 16/10;
       background: repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0 10px, rgba(255,255,255,0.015) 10px 20px);
       transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s ease;
       border: 1px solid var(--border);
     }
     .shot:hover { transform: translateY(-4px); border-color: rgba(56, 198, 255, 0.4); }
-    .shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .shot img { display: block; width: 100%; height: auto; }
 
     .stage-num {
       font-family: 'Fraunces', serif;
@@ -126,7 +125,7 @@
     </div>
     <p class="text-sm text-slate-400 mb-6 max-w-2xl">Riset awal untuk memahami kebutuhan pengguna, referensi kompetitor, dan alur informasi sebelum masuk ke desain.</p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <div class="grid grid-cols-1 gap-5 max-w-4xl">
       <div class="shot glass rounded-2xl overflow-hidden">
         <img src="research-1.png" alt="Dokumentasi riset pengguna">
       </div>
@@ -143,7 +142,10 @@
     </div>
     <p class="text-sm text-slate-400 mb-6 max-w-2xl">Fondasi visual — palet warna, tipografi, komponen, dan pola UI — yang dipakai konsisten di seluruh halaman.</p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <div class="grid grid-cols-1 gap-5 max-w-4xl">
+      <div class="shot glass rounded-2xl overflow-hidden">
+        <img src="wireframe.png" alt="Wireframe awal tata letak halaman">
+      </div>
       <div class="shot glass rounded-2xl overflow-hidden">
         <img src="design-system-1.png" alt="Komponen dan style guide">
       </div>
