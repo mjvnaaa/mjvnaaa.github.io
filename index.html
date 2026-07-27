@@ -1,257 +1,327 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moh. Jevon Attaillah — Personal Hub</title>
-  <meta name="description" content="Personal hub Moh. Jevon Attaillah — Web Developer, Product Owner, dan Software Engineering Enthusiast di Politeknik Negeri Banyuwangi.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moh. Jevon Attaillah — Personal Hub</title>
+<meta name="description" content="Personal hub Moh. Jevon Attaillah — Web Developer, Product Owner, dan Software Engineering Enthusiast di Politeknik Negeri Banyuwangi.">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="min-h-screen antialiased">
 
-  <!-- Scroll progress -->
-  <div class="scroll-progress" data-scroll-progress></div>
+<!-- Scroll progress -->
+<div class="scroll-progress" data-scroll-progress></div>
 
-  <!-- Sticky nav -->
-  <nav data-nav class="site-nav fixed top-0 inset-x-0 z-30 backdrop-blur-lg bg-[#090b0e]/75 border-b border-white/[0.07]" style="box-shadow: 0 1px 0 rgba(56,198,255,0.06)">
-    <div class="max-w-6xl mx-auto px-5 sm:px-8 h-[60px] flex items-center justify-between">
-      <a href="#top" class="font-display text-sm font-semibold tracking-[.08em] text-white">JA<span style="color:var(--flame)">.</span></a>
+<!-- ============ NAVBAR (transparent → solid on scroll) ============ -->
+<nav data-nav class="site-nav fixed top-0 inset-x-0 z-40">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 h-[76px] flex items-center justify-between">
+    <a href="#top" class="font-display text-lg font-semibold tracking-tight text-white">Jevon<span class="text-grad">.</span></a>
 
-      <div class="hidden sm:flex items-center gap-7 font-mono text-[11px] uppercase tracking-widest text-slate-400">
-        <a href="#tentang" class="nav-link hover:text-white transition-colors">Tentang</a>
-        <a href="#portofolio" class="nav-link hover:text-white transition-colors">Portofolio</a>
-        <a href="#sertifikasi" class="nav-link hover:text-white transition-colors">Sertifikasi</a>
-        <a href="#keahlian" class="nav-link hover:text-white transition-colors">Keahlian</a>
+    <div class="hidden lg:flex items-center gap-8 font-mono text-[11px] uppercase tracking-widest text-slate-300">
+      <a href="#tentang" class="nav-link">Tentang</a>
+      <a href="#keahlian" class="nav-link">Keahlian</a>
+      <a href="#proyek" class="nav-link">Proyek</a>
+      <a href="#kontak" class="nav-link">Kontak</a>
+    </div>
+
+    <a href="#kontak" class="hidden sm:inline-flex gradient-border-btn">
+      <span>Let's Connect <i class="fa-solid fa-arrow-right text-xs ml-1"></i></span>
+    </a>
+
+    <button type="button" class="nav-toggle" data-nav-toggle aria-label="Buka menu" aria-expanded="false">
+      <span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu lg:hidden" data-mobile-menu>
+    <div class="max-w-6xl mx-auto px-5 py-4 flex flex-col gap-1 font-mono text-xs uppercase tracking-widest text-slate-300">
+      <a href="#tentang" class="nav-link py-2.5">Tentang</a>
+      <a href="#keahlian" class="nav-link py-2.5">Keahlian</a>
+      <a href="#proyek" class="nav-link py-2.5">Proyek</a>
+      <a href="#kontak" class="nav-link py-2.5">Kontak</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header id="top" class="hero-cosmic relative overflow-hidden">
+  <div class="cosmic-blob cosmic-blob-1"></div>
+  <div class="cosmic-blob cosmic-blob-2"></div>
+  <div class="cosmic-blob cosmic-blob-3"></div>
+  <div class="stars" aria-hidden="true"></div>
+
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 pt-[140px] pb-24 sm:pt-[168px] sm:pb-32 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+
+      <!-- LEFT: text -->
+      <div data-animate="slide-up">
+        <p class="font-mono text-xs uppercase tracking-[.25em] text-violet-300 mb-4">
+          <i class="fa-solid fa-hand-peace mr-1.5"></i> Halo, perkenalkan
+        </p>
+        <h1 class="font-display text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.08] mb-3">
+          Saya Moh. Jevon<br>Attaillah
+        </h1>
+
+        <p class="text-xl sm:text-2xl font-medium text-slate-300 mb-6 h-[1.6em]">
+          Seorang
+          <span class="type-target text-grad font-semibold" data-typing='["Web Developer","Product Owner","Software Engineering Enthusiast"]'></span><span class="type-cursor">|</span>
+        </p>
+
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-md mb-9">
+          Mahasiswa Teknologi Rekayasa Perangkat Lunak di Politeknik Negeri Banyuwangi. Ketua Tim &amp; Product Owner di
+          <span class="text-slate-200 font-medium">Javas Navasena</span>, terbiasa memimpin proyek nyata dari perancangan basis data hingga rilis produk.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="#kontak" class="cta-glow group">
+            <span>Let's Connect</span>
+            <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
+          </a>
+          <a href="https://github.com/mjvnaaa" target="_blank" rel="noopener" class="cta-ghost">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+        </div>
       </div>
 
-      <div class="hidden sm:block">
-        <a href="mailto:mohjevonattaillah@gmail.com" data-copy-email="mohjevonattaillah@gmail.com" class="font-mono text-[11px] uppercase tracking-widest text-slate-400 hover:text-white transition-colors">Kontak ↗</a>
+      <!-- RIGHT: bouncing profile image -->
+      <div class="relative flex justify-center lg:justify-end" data-animate="zoom-in">
+        <div class="relative">
+          <div class="orbit-ring"></div>
+          <div class="bounce-float">
+            <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-[2.5rem] p-[3px] avatar-gradient overflow-hidden">
+              <div class="w-full h-full rounded-[2.3rem] overflow-hidden bg-[#0c0620]">
+                <img src="jevon-attaillah.png" alt="Foto Profil Moh. Jevon Attaillah" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <span class="floating-chip chip-1"><i class="fa-brands fa-laravel"></i></span>
+            <span class="floating-chip chip-2"><i class="fa-solid fa-code"></i></span>
+            <span class="floating-chip chip-3"><i class="fa-brands fa-figma"></i></span>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
 
-      <button type="button" class="nav-toggle" data-nav-toggle aria-label="Buka menu" aria-expanded="false">
-        <span></span>
+  <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z" fill="var(--bg)"></path>
+  </svg>
+</header>
+
+<div class="max-w-6xl mx-auto px-5 sm:px-8">
+<main>
+
+  <!-- ============ TENTANG ============ -->
+  <section id="tentang" class="mt-4 sm:mt-8 scroll-mt-24" data-animate="fade-in">
+    <div class="glass-card spot rounded-3xl p-7 sm:p-12 relative overflow-hidden">
+      <p class="font-mono text-xs eyebrow uppercase mb-5 text-violet-300">
+        <i class="fa-solid fa-user mr-1.5"></i> Tentang Saya
+      </p>
+      <p class="font-display text-xl sm:text-2xl leading-relaxed text-slate-100 max-w-3xl">
+        Saya adalah mahasiswa Program Studi Teknologi Rekayasa Perangkat Lunak di Politeknik Negeri Banyuwangi yang memiliki minat besar dalam pengembangan sistem informasi. Saat ini, saya aktif sebagai <span class="text-sky-300">Ketua Tim Pengembang dan Product Owner</span> di tim <span class="text-rose-300">Javas Navasena</span>. Saya memiliki pengalaman dalam memimpin dan mengembangkan proyek berskala nyata, salah satunya adalah "Sistem Digitalisasi Rumah Kebangsaan Banyuwangi", sebuah portal informasi dan dokumentasi berbasis web yang mengimplementasikan arsitektur MVC menggunakan framework Laravel. Saya terbiasa menjembatani komunikasi dengan mitra (stakeholder), merancang basis data, serta menangani pengembangan lini Frontend maupun Backend.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ KEAHLIAN — Infinite Slider ============ -->
+  <section id="keahlian" class="mt-20 sm:mt-28 scroll-mt-24" data-animate="fade-in">
+    <div class="flex items-center gap-3 mb-3">
+      <i class="fa-solid fa-layer-group text-violet-300"></i>
+      <h2 class="font-display text-2xl sm:text-3xl font-semibold text-white">Keahlian &amp; Teknologi</h2>
+    </div>
+    <p class="text-sm text-slate-400 mb-8 max-w-lg">Tools dan teknologi yang saya gunakan sehari-hari untuk membangun produk.</p>
+
+    <div class="skills-stage rounded-[2rem] py-12 px-4 sm:px-8 relative overflow-hidden">
+      <div class="skills-track" data-skills-track>
+        <div class="skills-set" data-skills-set>
+          <!-- populated by JS (duplicated for infinite loop) -->
+        </div>
+        <div class="skills-set" data-skills-set aria-hidden="true"></div>
+      </div>
+      <div class="skills-fade skills-fade-l"></div>
+      <div class="skills-fade skills-fade-r"></div>
+    </div>
+  </section>
+
+  <!-- ============ PROYEK — Tabs ============ -->
+  <section id="proyek" class="mt-20 sm:mt-28 scroll-mt-24" data-animate="fade-in">
+    <div class="flex items-center gap-3 mb-3">
+      <i class="fa-solid fa-briefcase text-violet-300"></i>
+      <h2 class="font-display text-2xl sm:text-3xl font-semibold text-white">Proyek &amp; Pencapaian</h2>
+    </div>
+    <p class="text-sm text-slate-400 mb-8 max-w-lg">Pilih tab untuk melihat proyek utama atau sertifikasi yang sudah saya raih.</p>
+
+    <!-- Tab buttons -->
+    <div class="tab-nav" role="tablist">
+      <button type="button" class="tab-btn is-active" data-tab-btn="proyek" role="tab" aria-selected="true">
+        <i class="fa-solid fa-diagram-project"></i> Proyek Utama
+      </button>
+      <button type="button" class="tab-btn" data-tab-btn="sertifikasi" role="tab" aria-selected="false">
+        <i class="fa-solid fa-award"></i> Sertifikasi &amp; Lisensi
       </button>
     </div>
 
-    <!-- Mobile menu -->
-    <div class="mobile-menu sm:hidden" data-mobile-menu>
-      <div class="max-w-6xl mx-auto px-5 py-4 flex flex-col gap-1 font-mono text-xs uppercase tracking-widest text-slate-400">
-        <a href="#tentang" class="nav-link py-2.5 hover:text-white transition-colors">Tentang</a>
-        <a href="#portofolio" class="nav-link py-2.5 hover:text-white transition-colors">Portofolio</a>
-        <a href="#sertifikasi" class="nav-link py-2.5 hover:text-white transition-colors">Sertifikasi</a>
-        <a href="#keahlian" class="nav-link py-2.5 hover:text-white transition-colors">Keahlian</a>
-        <a href="mailto:mohjevonattaillah@gmail.com" data-copy-email="mohjevonattaillah@gmail.com" class="py-2.5 hover:text-white transition-colors">Kontak ↗</a>
+    <!-- Tab panel: Proyek -->
+    <div class="tab-panel is-active" data-tab-panel="proyek">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <a href="portfolio.html" class="tilt-card group">
+          <div class="tilt-card-media" style="background:linear-gradient(135deg,#1e1b4b,#4c1d95 45%,#831843)">
+            <i class="fa-solid fa-building-columns tilt-card-icon"></i>
+          </div>
+          <div class="tilt-card-overlay">
+            <span class="font-mono text-[10px] uppercase tracking-widest text-sky-300 mb-2 block">PRJ · Javas Navasena</span>
+            <h3 class="font-display text-lg sm:text-xl font-semibold text-white mb-2">Portal Rumah Kebangsaan Banyuwangi</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">Ketua Tim / Product Owner / Full-stack Developer — CMS portal berbasis MVC (Laravel &amp; MySQL) dengan manajemen mandiri dan moderasi publik.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="mini-badge">Laravel</span><span class="mini-badge">MVC</span><span class="mini-badge">MySQL</span>
+            </div>
+            <span class="inline-flex items-center gap-2 text-sm font-semibold text-sky-300">
+              Lihat Studi Kasus <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+            </span>
+          </div>
+        </a>
+
+        <div class="tilt-card group cursor-default">
+          <div class="tilt-card-media" style="background:linear-gradient(135deg,#312e81,#7e22ce 45%,#3b0764)">
+            <i class="fa-solid fa-users-gear tilt-card-icon"></i>
+          </div>
+          <div class="tilt-card-overlay">
+            <span class="font-mono text-[10px] uppercase tracking-widest text-violet-300 mb-2 block">TIM · Javas Navasena</span>
+            <h3 class="font-display text-lg sm:text-xl font-semibold text-white mb-2">Kepemimpinan Tim Pengembang</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">Memimpin koordinasi lintas peran (BA, UI/UX, Backend, Frontend), menyusun prioritas fitur, dan menjembatani komunikasi dengan mitra/stakeholder.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="mini-badge">Product Ownership</span><span class="mini-badge">Figma</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
 
-  <div id="top" class="max-w-6xl mx-auto px-5 sm:px-8 pt-28 pb-16 sm:pt-36 sm:pb-24">
-
-    <header class="relative flex flex-col items-center text-center fade-up" style="animation-delay:.05s">
-      <!-- Contour / topographic backdrop, Kawah Ijen-inspired -->
-      <svg class="contours -z-10 -top-16" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" stroke="#38c6ff" stroke-width="0.6">
-          <path d="M400,20 C220,20 90,110 90,220 C90,330 220,400 400,400 C580,400 710,330 710,220 C710,110 580,20 400,20 Z" opacity="0.18"/>
-          <path d="M400,55 C250,55 140,130 140,220 C140,310 250,365 400,365 C550,365 660,310 660,220 C660,130 550,55 400,55 Z" opacity="0.28"/>
-          <path d="M400,90 C280,90 190,150 190,220 C190,290 280,330 400,330 C520,330 610,290 610,220 C610,150 520,90 400,90 Z" opacity="0.4"/>
-          <path d="M400,125 C310,125 240,170 240,220 C240,270 310,295 400,295 C490,295 560,270 560,220 C560,170 490,125 400,125 Z" opacity="0.55" stroke="#7fe3ff"/>
-        </g>
-      </svg>
-
-      <div class="embers" aria-hidden="true">
-        <span class="ember" style="left:18%; width:4px; height:4px; animation-duration:7s; animation-delay:0s;"></span>
-        <span class="ember" style="left:32%; width:3px; height:3px; animation-duration:9s; animation-delay:1.4s;"></span>
-        <span class="ember" style="left:47%; width:5px; height:5px; animation-duration:8s; animation-delay:.6s;"></span>
-        <span class="ember" style="left:61%; width:3px; height:3px; animation-duration:10s; animation-delay:2.5s;"></span>
-        <span class="ember" style="left:74%; width:4px; height:4px; animation-duration:7.5s; animation-delay:3.4s;"></span>
-        <span class="ember" style="left:85%; width:3px; height:3px; animation-duration:9.5s; animation-delay:1.9s;"></span>
-      </div>
-
-      <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-[3px] avatar-ring mb-6 overflow-hidden">
-        <div class="w-full h-full rounded-full bg-[#090b0e] p-[3px]">
-          <img src="jevon-attaillah.png"
-               alt="Foto Profil Moh. Jevon Attaillah"
-               class="w-full h-full rounded-full object-cover">
-        </div>
-      </div>
-
-      <p class="font-mono text-xs sm:text-sm eyebrow uppercase mb-3" style="color:var(--flame)">
-        NIM 362458302035 · Politeknik Negeri Banyuwangi
-      </p>
-
-      <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight grad-text mb-4">
-        Moh. Jevon Attaillah
-      </h1>
-
-      <p class="text-slate-400 text-sm sm:text-base font-medium mb-9">
-        <span class="role-rotator role-word" data-role-rotator='["Web Developer", "Product Owner", "Software Engineering Enthusiast"]'>Web Developer</span>
-      </p>
-
-      <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-        <a href="#portofolio" class="cta-primary group rounded-2xl px-6 py-5 flex items-center justify-center gap-3 text-[#04121a] font-semibold shadow-lg">
-          <i class="fa-solid fa-folder-open text-lg"></i>
-          <span>Lihat Portofolio</span>
-          <i class="fa-solid fa-arrow-right text-sm opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i>
-        </a>
-        <a href="#sertifikasi" class="cta-secondary group rounded-2xl px-6 py-5 flex items-center justify-center gap-3 text-[#1a0c02] font-semibold shadow-lg">
-          <i class="fa-solid fa-award text-lg"></i>
-          <span>Sertifikasi &amp; Lisensi</span>
-          <i class="fa-solid fa-arrow-right text-sm opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i>
-        </a>
-      </div>
-
-      <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <a href="https://github.com/mjvnaaa" target="_blank" rel="noopener" class="social-tile glass rounded-xl px-5 py-4 flex items-center justify-center gap-2.5 text-sm font-medium">
-          <i class="fa-brands fa-github text-base"></i> GitHub Profile
-        </a>
-        <a href="mailto:mohjevonattaillah@gmail.com" data-copy-email="mohjevonattaillah@gmail.com" class="social-tile glass rounded-xl px-5 py-4 flex items-center justify-center gap-2.5 text-sm font-medium">
-          <i class="fa-solid fa-envelope text-base"></i> Email Saya
-        </a>
-      </div>
-    </header>
-
-    <main>
-    <section id="tentang" class="mt-20 sm:mt-28 scroll-mt-20 reveal">
-      <div class="glass spot rounded-3xl p-7 sm:p-12 relative overflow-hidden">
-        <p class="font-mono text-xs eyebrow uppercase mb-5" style="color:var(--flame)">
-          <i class="fa-solid fa-user mr-1.5"></i> Tentang Saya
-        </p>
-        <p class="font-display text-xl sm:text-2xl leading-relaxed text-slate-100 max-w-3xl">
-          Saya adalah mahasiswa Program Studi Teknologi Rekayasa Perangkat Lunak di Politeknik Negeri Banyuwangi yang memiliki minat besar dalam pengembangan sistem informasi. Saat ini, saya aktif sebagai <span style="color:#9fe6ff">Ketua Tim Pengembang dan Product Owner</span> di tim <span style="color:#ffc79a">Javas Navasena</span>. Saya memiliki pengalaman dalam memimpin dan mengembangkan proyek berskala nyata, salah satunya adalah "Sistem Digitalisasi Rumah Kebangsaan Banyuwangi", sebuah portal informasi dan dokumentasi berbasis web yang mengimplementasikan arsitektur MVC menggunakan framework Laravel. Saya terbiasa menjembatani komunikasi dengan mitra (stakeholder), merancang basis data, serta menangani pengembangan lini Frontend maupun Backend.
-        </p>
-      </div>
-    </section>
-
-    <section id="portofolio" class="mt-16 sm:mt-24 scroll-mt-20 reveal">
-      <div class="flex items-end justify-between gap-4 mb-7">
-        <div class="flex items-center gap-3">
-          <i class="fa-solid fa-briefcase" style="color:var(--flame)"></i>
-          <h2 class="font-display text-2xl sm:text-3xl font-semibold text-white">Proyek Utama</h2>
-        </div>
-        <span class="hidden sm:block font-mono text-[11px] uppercase tracking-widest text-slate-500">01 dari 01</span>
-      </div>
-      <div class="rule mb-7"></div>
-
-      <div class="grid grid-cols-1 gap-5">
-        <article class="blueprint-card glass glass-hover spot rounded-2xl p-6 sm:p-8 flex flex-col">
-          <div class="flex items-start justify-between mb-5">
-            <span class="w-11 h-11 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg, var(--flame-soft), transparent); border:1px solid var(--border-strong)">
-              <i class="fa-solid fa-building-columns" style="color:var(--flame)"></i>
-            </span>
-            <span class="font-mono text-[11px] uppercase tracking-wider rounded-full px-3 py-1" style="color:#9fe6ff; background:var(--flame-soft); border:1px solid rgba(56,198,255,0.25)">PRJ · Javas Navasena</span>
+    <!-- Tab panel: Sertifikasi -->
+    <div class="tab-panel" data-tab-panel="sertifikasi">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <a href="cjwd.png" target="_blank" rel="noopener" class="tilt-card group">
+          <div class="tilt-card-media" style="background:linear-gradient(135deg,#0e7fb0,#38c6ff 55%,#1e1b4b)">
+            <i class="fa-solid fa-certificate tilt-card-icon"></i>
           </div>
-          <h3 class="font-display text-xl font-semibold text-white mb-2">Portal Informasi &amp; Dokumentasi Rumah Kebangsaan Banyuwangi</h3>
-          <p class="font-mono text-xs mb-4" style="color:var(--ember)">Ketua Tim / Product Owner / Full-stack Developer</p>
-          <p class="text-sm text-slate-400 leading-relaxed max-w-2xl">
-            Memimpin pengembangan sistem CMS portal web terintegrasi berbasis arsitektur MVC (Laravel &amp; MySQL) dengan fitur manajemen mandiri dan moderasi publik.
+          <div class="tilt-card-overlay">
+            <span class="font-mono text-[10px] uppercase tracking-widest text-sky-300 mb-2 block">BNSP</span>
+            <h3 class="font-display text-lg sm:text-xl font-semibold text-white mb-2">Certified Junior Web Developer</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Sertifikasi kompetensi nasional bidang pengembangan web junior.</p>
+          </div>
+        </a>
+        <a href="cjmd.png" target="_blank" rel="noopener" class="tilt-card group">
+          <div class="tilt-card-media" style="background:linear-gradient(135deg,#b4501f,#ff9a52 55%,#3b0764)">
+            <i class="fa-solid fa-certificate tilt-card-icon"></i>
+          </div>
+          <div class="tilt-card-overlay">
+            <span class="font-mono text-[10px] uppercase tracking-widest text-orange-300 mb-2 block">BNSP</span>
+            <h3 class="font-display text-lg sm:text-xl font-semibold text-white mb-2">Certified Junior Mobile Developer</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Sertifikasi kompetensi nasional bidang pengembangan mobile junior.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="kontak" class="mt-20 sm:mt-28 scroll-mt-24" data-animate="fade-in">
+    <div class="contact-card rounded-[2rem] p-7 sm:p-14 relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+
+        <!-- Left illustration -->
+        <div class="flex flex-col items-start" data-animate="slide-up">
+          <p class="font-mono text-xs uppercase tracking-widest text-violet-300 mb-4"><i class="fa-solid fa-comments mr-1.5"></i> Contact Us</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-5 leading-tight">Ada proyek atau ide?<br>Mari berdiskusi.</h2>
+          <p class="text-slate-400 text-sm leading-relaxed max-w-sm mb-8">
+            Terbuka untuk kolaborasi, magang, maupun sekadar bertukar pikiran seputar pengembangan web dan produk digital.
           </p>
-          <div class="flex flex-wrap gap-2 mt-6">
-            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400">Laravel</span>
-            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400">MVC</span>
-            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-400">MySQL</span>
-          </div>
-          <a href="portfolio.html" class="group mt-7 inline-flex items-center gap-2 text-sm font-semibold transition-colors w-fit" style="color:#9fe6ff">
-            <i class="fa-solid fa-swatchbook"></i>
-            <span>Lihat Studi Kasus Desain UI/UX</span>
-            <i class="fa-solid fa-arrow-right text-xs opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i>
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <section id="sertifikasi" class="mt-16 sm:mt-24 scroll-mt-20 reveal">
-      <div class="flex items-center gap-3 mb-7">
-        <i class="fa-solid fa-award" style="color:var(--ember)"></i>
-        <h2 class="font-display text-2xl sm:text-3xl font-semibold text-white">Sertifikasi &amp; Lisensi</h2>
-      </div>
-      <div class="rule mb-7"></div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <a href="cjwd.png" target="_blank" rel="noopener" class="blueprint-card glass glass-hover spot rounded-2xl p-6 flex items-center gap-4 group">
-          <span class="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg, #0e7fb0, var(--flame))">
-            <i class="fa-solid fa-certificate text-[#04121a]"></i>
-          </span>
-          <div class="flex-1">
-            <h3 class="font-semibold text-white text-sm sm:text-base">Certified Junior Web Developer</h3>
-            <p class="text-xs text-slate-400 font-mono mt-0.5">BNSP</p>
-          </div>
-          <i class="fa-solid fa-arrow-up-right-from-square text-slate-500 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
-        </a>
-        <a href="cjmd.png" target="_blank" rel="noopener" class="blueprint-card glass glass-hover spot rounded-2xl p-6 flex items-center gap-4 group">
-          <span class="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg, #b4501f, var(--ember))">
-            <i class="fa-solid fa-certificate text-[#1a0c02]"></i>
-          </span>
-          <div class="flex-1">
-            <h3 class="font-semibold text-white text-sm sm:text-base">Certified Junior Mobile Developer</h3>
-            <p class="text-xs text-slate-400 font-mono mt-0.5">BNSP</p>
-          </div>
-          <i class="fa-solid fa-arrow-up-right-from-square text-slate-500 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
-        </a>
-      </div>
-    </section>
-
-    <section id="keahlian" class="mt-16 sm:mt-24 scroll-mt-20 reveal">
-      <div class="flex items-center gap-3 mb-7">
-        <i class="fa-solid fa-layer-group" style="color:var(--flame)"></i>
-        <h2 class="font-display text-2xl sm:text-3xl font-semibold text-white">Keahlian &amp; Teknologi</h2>
-      </div>
-      <div class="rule mb-7"></div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="blueprint-card glass spot rounded-2xl p-6">
-          <p class="font-mono text-[11px] uppercase tracking-wider mb-4" style="color:#9fe6ff"><i class="fa-solid fa-code mr-1.5"></i>Web Development</p>
-          <div class="flex flex-wrap gap-2.5">
-            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">PHP</span>
-            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Laravel</span>
-            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Blade</span>
-            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">MVC</span>
-            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">MySQL</span>
-          </div>
+          <svg class="w-full max-w-[280px]" viewBox="0 0 280 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="140" cy="200" rx="110" ry="14" fill="#4c1d9533"/>
+            <rect x="55" y="40" width="170" height="120" rx="16" fill="url(#g1)"/>
+            <rect x="75" y="64" width="90" height="10" rx="5" fill="#ffffff33"/>
+            <rect x="75" y="84" width="130" height="10" rx="5" fill="#ffffff22"/>
+            <rect x="75" y="104" width="70" height="10" rx="5" fill="#ffffff22"/>
+            <circle cx="205" cy="55" r="22" fill="url(#g2)"/>
+            <path d="M195 55l7 7 13-14" stroke="#0c0620" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="g1" x1="55" y1="40" x2="225" y2="160" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#4c1d95"/><stop offset="1" stop-color="#3b0764"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="183" y1="33" x2="227" y2="77" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#38c6ff"/><stop offset="1" stop-color="#ec4899"/>
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
 
-        <div class="blueprint-card glass spot rounded-2xl p-6">
-          <p class="font-mono text-[11px] uppercase tracking-wider mb-4" style="color:#ffc79a"><i class="fa-solid fa-server mr-1.5"></i>Infrastructure</p>
-          <div class="flex flex-wrap gap-2.5">
-            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Linux</span>
-            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Nginx</span>
-            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">MariaDB</span>
-            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Multi-VM (VirtualBox)</span>
+        <!-- Right form -->
+        <form class="grid grid-cols-1 sm:grid-cols-2 gap-4" data-contact-form data-animate="slide-up">
+          <div class="sm:col-span-1">
+            <label class="form-label">First Name</label>
+            <input type="text" name="first_name" required class="form-input" placeholder="Moh. Jevon">
           </div>
-        </div>
-
-        <div class="blueprint-card glass spot rounded-2xl p-6">
-          <p class="font-mono text-[11px] uppercase tracking-wider mb-4" style="color:#d6c8ff"><i class="fa-solid fa-shield-halved mr-1.5"></i>Design &amp; Security</p>
-          <div class="flex flex-wrap gap-2.5">
-            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Figma (UI/UX)</span>
-            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Burp Suite</span>
-            <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Web Proxy Config</span>
+          <div class="sm:col-span-1">
+            <label class="form-label">Last Name</label>
+            <input type="text" name="last_name" required class="form-input" placeholder="Attaillah">
           </div>
-        </div>
+          <div class="sm:col-span-2">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" required class="form-input" placeholder="nama@email.com">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="form-label">Message</label>
+            <textarea name="message" required rows="4" class="form-input resize-none" placeholder="Ceritakan proyek atau ide Anda..."></textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <button type="submit" class="cta-glow w-full sm:w-auto justify-center">
+              <span>Send Message</span>
+              <i class="fa-solid fa-paper-plane text-sm"></i>
+            </button>
+          </div>
+        </form>
       </div>
-    </section>
-    </main>
+    </div>
+  </section>
 
-    <footer class="mt-20 sm:mt-28 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono reveal">
-      <p>© <span data-year>2026</span> Moh. Jevon Attaillah — Politeknik Negeri Banyuwangi</p>
-      <a href="mailto:mohjevonattaillah@gmail.com" data-copy-email="mohjevonattaillah@gmail.com" class="hover:text-[color:var(--flame)] transition-colors">mohjevonattaillah@gmail.com</a>
-    </footer>
-
+  <!-- ============ NEWSLETTER (white box overlap) ============ -->
+  <div class="newsletter-wrap" data-animate="zoom-in">
+    <div class="newsletter-box rounded-[2rem] px-6 py-9 sm:px-14 sm:py-12">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div>
+          <p class="font-mono text-[11px] uppercase tracking-widest text-violet-600 mb-2">Subscribe</p>
+          <h3 class="font-display text-2xl sm:text-3xl font-bold text-[#170a33]">Dapatkan kabar proyek &amp; tulisan terbaru saya</h3>
+        </div>
+        <form class="newsletter-form" data-newsletter-form>
+          <input type="email" required placeholder="Alamat email Anda" class="newsletter-input">
+          <button type="submit" class="newsletter-btn">Subscribe <i class="fa-solid fa-paper-plane ml-1 text-xs"></i></button>
+        </form>
+      </div>
+    </div>
   </div>
 
-  <!-- Back to top -->
-  <button type="button" class="back-to-top" data-back-to-top aria-label="Kembali ke atas">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
+</main>
 
-  <!-- Toast stack -->
-  <div class="toast-stack" data-toast-stack aria-live="polite"></div>
+<footer class="pt-10 pb-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
+  <p>© <span data-year>2026</span> Moh. Jevon Attaillah — Politeknik Negeri Banyuwangi</p>
+  <a href="mailto:mohjevonattaillah@gmail.com" data-copy-email="mohjevonattaillah@gmail.com" class="hover:text-violet-300 transition-colors">mohjevonattaillah@gmail.com</a>
+</footer>
 
-  <script src="script.js"></script>
+</div>
+
+<!-- Back to top -->
+<button type="button" class="back-to-top" data-back-to-top aria-label="Kembali ke atas">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- Toast stack -->
+<div class="toast-stack" data-toast-stack aria-live="polite"></div>
+
+<script src="script.js"></script>
 </body>
 </html>

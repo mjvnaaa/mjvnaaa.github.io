@@ -1,6 +1,6 @@
 /* =========================================================
    Moh. Jevon Attaillah — Personal Hub
-   Shared interactivity
+   Cosmic theme interactivity (Vanilla JS)
    ========================================================= */
 
 (function () {
@@ -8,11 +8,11 @@
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- 1. Sticky nav shadow on scroll ---------- */
+  /* ---------- 1. Navbar: transparent → solid on scroll ---------- */
   const nav = document.querySelector("[data-nav]");
   function handleNavShadow() {
     if (!nav) return;
-    nav.classList.toggle("is-scrolled", window.scrollY > 8);
+    nav.classList.toggle("is-scrolled", window.scrollY > 40);
   }
 
   /* ---------- 2. Mobile menu toggle ---------- */
@@ -33,8 +33,8 @@
     });
   }
 
-  /* ---------- 3. Active section highlighting ---------- */
-  const sections = document.querySelectorAll("main [id], body > div > section[id]");
+  /* ---------- 3. Active section indicator ---------- */
+  const sections = document.querySelectorAll("main [id], header[id]");
   const navLinks = document.querySelectorAll(".nav-link[href^='#']");
   if (sections.length && navLinks.length && "IntersectionObserver" in window) {
     const sectionObserver = new IntersectionObserver(
@@ -53,25 +53,24 @@
     sections.forEach((section) => sectionObserver.observe(section));
   }
 
-  /* ---------- 4. Scroll-triggered reveal ---------- */
-  const revealEls = document.querySelectorAll(".reveal");
-  if (revealEls.length) {
+  /* ---------- 4. Scroll-triggered reveal (fade-in / slide-up / zoom-in) ---------- */
+  const animatedEls = document.querySelectorAll("[data-animate]");
+  if (animatedEls.length) {
     if ("IntersectionObserver" in window && !reduceMotion) {
       const revealObserver = new IntersectionObserver(
         (entries) => {
-          entries.forEach((entry, i) => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              const delay = entry.target.dataset.revealDelay || 0;
-              setTimeout(() => entry.target.classList.add("is-visible"), Number(delay));
+              entry.target.classList.add("is-visible");
               revealObserver.unobserve(entry.target);
             }
           });
         },
-        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+        { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
       );
-      revealEls.forEach((el) => revealObserver.observe(el));
+      animatedEls.forEach((el) => revealObserver.observe(el));
     } else {
-      revealEls.forEach((el) => el.classList.add("is-visible"));
+      animatedEls.forEach((el) => el.classList.add("is-visible"));
     }
   }
 
@@ -97,7 +96,6 @@
     });
   }
 
-  /* Combine scroll listeners for performance */
   let ticking = false;
   function onScroll() {
     if (!ticking) {
@@ -124,28 +122,92 @@
     });
   }
 
-  /* ---------- 8. Role rotator in hero ---------- */
-  const roleEl = document.querySelector("[data-role-rotator]");
-  if (roleEl) {
+  /* ---------- 8. Typing animation (rotating profession) ---------- */
+  const typeEl = document.querySelector("[data-typing]");
+  if (typeEl) {
     let roles = [];
-    try {
-      roles = JSON.parse(roleEl.dataset.roleRotator);
-    } catch (e) {
-      roles = [];
-    }
-    if (roles.length > 1 && !reduceMotion) {
-      let idx = 0;
-      setInterval(() => {
-        idx = (idx + 1) % roles.length;
-        roleEl.classList.remove("role-word");
-        void roleEl.offsetWidth; // restart animation
-        roleEl.textContent = roles[idx];
-        roleEl.classList.add("role-word");
-      }, 2600);
+    try { roles = JSON.parse(typeEl.dataset.typing); } catch (e) { roles = []; }
+
+    if (roles.length && !reduceMotion) {
+      let roleIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      function tick() {
+        const current = roles[roleIndex];
+
+        if (!deleting) {
+          charIndex++;
+          typeEl.textContent = current.slice(0, charIndex);
+          if (charIndex === current.length) {
+            deleting = true;
+            return setTimeout(tick, 1600); // pause at full word
+          }
+          return setTimeout(tick, 75);
+        } else {
+          charIndex--;
+          typeEl.textContent = current.slice(0, charIndex);
+          if (charIndex === 0) {
+            deleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            return setTimeout(tick, 400); // pause before next word
+          }
+          return setTimeout(tick, 40);
+        }
+      }
+      tick();
+    } else if (roles.length) {
+      typeEl.textContent = roles[0];
     }
   }
 
-  /* ---------- 9. Copy email + toast feedback ---------- */
+  /* ---------- 9. Infinite skills slider ---------- */
+  const skillsData = [
+    { icon: "fa-brands fa-php", label: "PHP" },
+    { icon: "fa-brands fa-laravel", label: "Laravel" },
+    { icon: "fa-solid fa-file-code", label: "Blade" },
+    { icon: "fa-solid fa-diagram-project", label: "MVC" },
+    { icon: "fa-solid fa-database", label: "MySQL" },
+    { icon: "fa-brands fa-linux", label: "Linux" },
+    { icon: "fa-solid fa-server", label: "Nginx" },
+    { icon: "fa-solid fa-database", label: "MariaDB" },
+    { icon: "fa-solid fa-desktop", label: "VirtualBox" },
+    { icon: "fa-brands fa-figma", label: "Figma" },
+    { icon: "fa-solid fa-bug", label: "Burp Suite" },
+    { icon: "fa-solid fa-network-wired", label: "Web Proxy" },
+  ];
+
+  const skillSets = document.querySelectorAll("[data-skills-set]");
+  if (skillSets.length) {
+    const markup = skillsData
+      .map(
+        (s) => `
+        <div class="skill-pill">
+          <i class="${s.icon}"></i>
+          <span>${s.label}</span>
+        </div>`
+      )
+      .join("");
+    skillSets.forEach((set) => (set.innerHTML = markup));
+  }
+
+  /* ---------- 10. Portfolio tabs ---------- */
+  const tabButtons = document.querySelectorAll("[data-tab-btn]");
+  const tabPanels = document.querySelectorAll("[data-tab-panel]");
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const target = btn.dataset.tabBtn;
+      tabButtons.forEach((b) => {
+        b.classList.toggle("is-active", b === btn);
+        b.setAttribute("aria-selected", String(b === btn));
+      });
+      tabPanels.forEach((panel) => {
+        panel.classList.toggle("is-active", panel.dataset.tabPanel === target);
+      });
+    });
+  });
+
+  /* ---------- 11. Copy email + toast feedback ---------- */
   const toastStack = document.querySelector("[data-toast-stack]");
   function showToast(message, icon) {
     if (!toastStack) return;
@@ -153,7 +215,7 @@
     toast.className = "toast";
     toast.innerHTML = `<i class="fa-solid ${icon || "fa-circle-check"}"></i><span>${message}</span>`;
     toastStack.appendChild(toast);
-    setTimeout(() => toast.remove(), 2600);
+    setTimeout(() => toast.remove(), 2800);
   }
 
   document.querySelectorAll("[data-copy-email]").forEach((el) => {
@@ -161,30 +223,33 @@
       const email = el.dataset.copyEmail;
       if (!email || !navigator.clipboard) return;
       e.preventDefault();
-      navigator.clipboard
-        .writeText(email)
-        .then(() => showToast("Email disalin ke clipboard", "fa-circle-check"))
-        .catch(() => {
-          window.location.href = `mailto:${email}`;
-        });
+      navigator.clipboard.writeText(email).then(() => {
+        showToast("Email disalin ke clipboard", "fa-clipboard-check");
+      });
     });
   });
 
-  /* ---------- 10. Smooth-scroll offset for sticky nav (in-page anchors) ---------- */
-  document.querySelectorAll("a[href^='#']:not([href='#'])").forEach((link) => {
-    link.addEventListener("click", (e) => {
-      const targetId = link.getAttribute("href").slice(1);
-      const target = document.getElementById(targetId);
-      if (!target) return;
+  /* ---------- 12. Contact form (client-side only) ---------- */
+  const contactForm = document.querySelector("[data-contact-form]");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const navHeight = document.querySelector("[data-nav]")?.offsetHeight || 0;
-      const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 12;
-      window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
-      history.pushState(null, "", `#${targetId}`);
+      showToast("Pesan berhasil dikirim, terima kasih!", "fa-paper-plane");
+      contactForm.reset();
     });
-  });
+  }
 
-  /* ---------- 11. Current year in footer ---------- */
+  /* ---------- 13. Newsletter form (client-side only) ---------- */
+  const newsletterForm = document.querySelector("[data-newsletter-form]");
+  if (newsletterForm) {
+    newsletterForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      showToast("Berhasil subscribe newsletter!", "fa-circle-check");
+      newsletterForm.reset();
+    });
+  }
+
+  /* ---------- 14. Footer year ---------- */
   document.querySelectorAll("[data-year]").forEach((el) => {
     el.textContent = new Date().getFullYear();
   });
