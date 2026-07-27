@@ -4,138 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moh. Jevon Attaillah — Personal Hub</title>
+  <meta name="description" content="Personal hub Moh. Jevon Attaillah — Web Developer, Product Owner, dan Software Engineering Enthusiast di Politeknik Negeri Banyuwangi.">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #090b0e;
-      --bg-2: #0d1116;
-      --surface: #11151b;
-      --border: rgba(163, 177, 194, 0.12);
-      --border-strong: rgba(163, 177, 194, 0.22);
-      --ink: #e7e9ec;
-      --muted: #8b95a1;
-      --flame: #38c6ff;     /* Kawah Ijen blue-fire accent */
-      --flame-soft: rgba(56, 198, 255, 0.14);
-      --ember: #ff9a52;     /* molten ember counterpoint */
-      --ember-soft: rgba(255, 154, 82, 0.14);
-    }
-
-    * { scrollbar-width: thin; scrollbar-color: #2a323d transparent; }
-
-    body {
-      background-color: var(--bg);
-      color: var(--ink);
-      font-family: 'Inter', sans-serif;
-      background-image:
-        radial-gradient(circle at 12% -5%, rgba(56, 198, 255, 0.09), transparent 42%),
-        radial-gradient(circle at 88% 12%, rgba(255, 154, 82, 0.06), transparent 38%);
-    }
-
-    .font-display { font-family: 'Fraunces', serif; font-optical-sizing: auto; }
-    .font-mono { font-family: 'JetBrains Mono', monospace; }
-
-    /* Topographic contour motif — evokes Kawah Ijen's crater lines, doubles as a schematic backdrop */
-    .contours {
-      position: absolute; inset: 0;
-      pointer-events: none;
-      opacity: 0.55;
-      mask-image: radial-gradient(circle at 50% 30%, black 0%, transparent 68%);
-      -webkit-mask-image: radial-gradient(circle at 50% 30%, black 0%, transparent 68%);
-    }
-
-    .glass {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.012));
-      border: 1px solid var(--border);
-    }
-
-    .glass-hover { transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s ease, box-shadow .35s ease; }
-    .glass-hover:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-strong);
-      box-shadow: 0 22px 44px -22px rgba(0,0,0,0.65);
-    }
-
-    .cta-primary {
-      background: linear-gradient(115deg, #0e7fb0, var(--flame) 55%, #7fe3ff);
-      background-size: 200% 200%;
-      transition: background-position .6s ease, transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
-    }
-    .cta-primary:hover {
-      background-position: 100% 0%;
-      transform: translateY(-3px);
-      box-shadow: 0 18px 40px -14px rgba(56, 198, 255, 0.45);
-    }
-
-    .cta-secondary {
-      background: linear-gradient(115deg, #b4501f, var(--ember) 55%, #ffc79a);
-      background-size: 200% 200%;
-      transition: background-position .6s ease, transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
-    }
-    .cta-secondary:hover {
-      background-position: 100% 0%;
-      transform: translateY(-3px);
-      box-shadow: 0 18px 40px -14px rgba(255, 154, 82, 0.4);
-    }
-
-    .social-tile { transition: transform .3s ease, border-color .3s ease, background .3s ease; }
-    .social-tile:hover { transform: translateY(-3px); border-color: rgba(56, 198, 255, 0.45); background: var(--flame-soft); }
-
-    .badge { transition: transform .25s ease, border-color .25s ease, color .25s ease, background .25s ease; }
-    .badge:hover { transform: translateY(-2px); border-color: rgba(56, 198, 255, 0.5); color: #9fe6ff; background: var(--flame-soft); }
-
-    .avatar-ring {
-      background: conic-gradient(from 220deg, var(--flame), #7fe3ff, var(--ember), var(--flame));
-      transition: box-shadow .4s ease, transform .4s ease;
-    }
-    .avatar-ring:hover { transform: scale(1.02); box-shadow: 0 0 28px rgba(56, 198, 255, 0.35); }
-
-    .grad-text {
-      background: linear-gradient(95deg, #ffffff 15%, #b9e9ff 55%, #ffd9b8);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-
-    .eyebrow { letter-spacing: .2em; }
-
-    /* Schematic corner brackets on project card — nods to the blueprint / MVC-architecture framing */
-    .blueprint-card { position: relative; }
-    .blueprint-card::before, .blueprint-card::after {
-      content: ""; position: absolute; width: 14px; height: 14px;
-      border-color: rgba(56, 198, 255, 0.55); opacity: 0; transition: opacity .35s ease;
-    }
-    .blueprint-card::before { top: 10px; left: 10px; border-top: 1.5px solid; border-left: 1.5px solid; }
-    .blueprint-card::after { bottom: 10px; right: 10px; border-bottom: 1.5px solid; border-right: 1.5px solid; }
-    .blueprint-card:hover::before, .blueprint-card:hover::after { opacity: 1; }
-
-    .rule { height: 1px; background: linear-gradient(90deg, var(--border-strong), transparent); }
-
-    .fade-up { opacity: 0; transform: translateY(16px); animation: fadeUp .8s cubic-bezier(.2,.8,.2,1) forwards; }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    @media (prefers-reduced-motion: reduce) { .fade-up { animation: none; opacity: 1; transform: none; } }
-
-    a:focus-visible, button:focus-visible { outline: 2px solid var(--flame); outline-offset: 3px; border-radius: 6px; }
-
-    ::selection { background: rgba(56, 198, 255, 0.3); }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="min-h-screen antialiased">
 
-  <!-- Slim sticky nav -->
-  <nav class="fixed top-0 inset-x-0 z-30 backdrop-blur-md bg-[#090b0e]/70 border-b border-white/5">
-    <div class="max-w-6xl mx-auto px-5 sm:px-8 h-14 flex items-center justify-between">
-      <a href="#top" class="font-display text-sm font-semibold tracking-wide text-white">JA<span class="text-[--flame]" style="color:var(--flame)">.</span></a>
+  <!-- Scroll progress -->
+  <div class="scroll-progress" data-scroll-progress></div>
+
+  <!-- Sticky nav -->
+  <nav data-nav class="site-nav fixed top-0 inset-x-0 z-30 backdrop-blur-lg bg-[#090b0e]/75 border-b border-white/[0.07]" style="box-shadow: 0 1px 0 rgba(56,198,255,0.06)">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 h-[60px] flex items-center justify-between">
+      <a href="#top" class="font-display text-sm font-semibold tracking-[.08em] text-white">JA<span style="color:var(--flame)">.</span></a>
+
       <div class="hidden sm:flex items-center gap-7 font-mono text-[11px] uppercase tracking-widest text-slate-400">
-        <a href="#tentang" class="hover:text-white transition-colors">Tentang</a>
-        <a href="#portofolio" class="hover:text-white transition-colors">Portofolio</a>
-        <a href="#sertifikasi" class="hover:text-white transition-colors">Sertifikasi</a>
-        <a href="#keahlian" class="hover:text-white transition-colors">Keahlian</a>
+        <a href="#tentang" class="nav-link hover:text-white transition-colors">Tentang</a>
+        <a href="#portofolio" class="nav-link hover:text-white transition-colors">Portofolio</a>
+        <a href="#sertifikasi" class="nav-link hover:text-white transition-colors">Sertifikasi</a>
+        <a href="#keahlian" class="nav-link hover:text-white transition-colors">Keahlian</a>
       </div>
-      <a href="mailto:mohjevonattaillah@gmail.com" class="font-mono text-[11px] uppercase tracking-widest text-slate-400 hover:text-white transition-colors">Kontak ↗</a>
+
+      <div class="hidden sm:block">
+        <a href="mailto:mohjevonattaillah@gmail.com" data-copy-email="mohjevonattaillah@gmail.com" class="font-mono text-[11px] uppercase tracking-widest text-slate-400 hover:text-white transition-colors">Kontak ↗</a>
+      </div>
+
+      <button type="button" class="nav-toggle" data-nav-toggle aria-label="Buka menu" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu sm:hidden" data-mobile-menu>
+      <div class="max-w-6xl mx-auto px-5 py-4 flex flex-col gap-1 font-mono text-xs uppercase tracking-widest text-slate-400">
+        <a href="#tentang" class="nav-link py-2.5 hover:text-white transition-colors">Tentang</a>
+        <a href="#portofolio" class="nav-link py-2.5 hover:text-white transition-colors">Portofolio</a>
+        <a href="#sertifikasi" class="nav-link py-2.5 hover:text-white transition-colors">Sertifikasi</a>
+        <a href="#keahlian" class="nav-link py-2.5 hover:text-white transition-colors">Keahlian</a>
+        <a href="mailto:mohjevonattaillah@gmail.com" data-copy-email="mohjevonattaillah@gmail.com" class="py-2.5 hover:text-white transition-colors">Kontak ↗</a>
+      </div>
     </div>
   </nav>
 
@@ -152,6 +64,15 @@
         </g>
       </svg>
 
+      <div class="embers" aria-hidden="true">
+        <span class="ember" style="left:18%; width:4px; height:4px; animation-duration:7s; animation-delay:0s;"></span>
+        <span class="ember" style="left:32%; width:3px; height:3px; animation-duration:9s; animation-delay:1.4s;"></span>
+        <span class="ember" style="left:47%; width:5px; height:5px; animation-duration:8s; animation-delay:.6s;"></span>
+        <span class="ember" style="left:61%; width:3px; height:3px; animation-duration:10s; animation-delay:2.5s;"></span>
+        <span class="ember" style="left:74%; width:4px; height:4px; animation-duration:7.5s; animation-delay:3.4s;"></span>
+        <span class="ember" style="left:85%; width:3px; height:3px; animation-duration:9.5s; animation-delay:1.9s;"></span>
+      </div>
+
       <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-[3px] avatar-ring mb-6 overflow-hidden">
         <div class="w-full h-full rounded-full bg-[#090b0e] p-[3px]">
           <img src="jevon-attaillah.png"
@@ -164,12 +85,12 @@
         NIM 362458302035 · Politeknik Negeri Banyuwangi
       </p>
 
-      <h1 class="font-display text-5xl sm:text-7xl font-semibold tracking-tight grad-text mb-4">
+      <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight grad-text mb-4">
         Moh. Jevon Attaillah
       </h1>
 
       <p class="text-slate-400 text-sm sm:text-base font-medium mb-9">
-        Web Developer <span class="text-slate-600 mx-1.5">·</span> Product Owner <span class="text-slate-600 mx-1.5">·</span> Software Engineering Enthusiast
+        <span class="role-rotator role-word" data-role-rotator='["Web Developer", "Product Owner", "Software Engineering Enthusiast"]'>Web Developer</span>
       </p>
 
       <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -189,14 +110,15 @@
         <a href="https://github.com/mjvnaaa" target="_blank" rel="noopener" class="social-tile glass rounded-xl px-5 py-4 flex items-center justify-center gap-2.5 text-sm font-medium">
           <i class="fa-brands fa-github text-base"></i> GitHub Profile
         </a>
-        <a href="mailto:mohjevonattaillah@gmail.com" class="social-tile glass rounded-xl px-5 py-4 flex items-center justify-center gap-2.5 text-sm font-medium">
+        <a href="mailto:mohjevonattaillah@gmail.com" data-copy-email="mohjevonattaillah@gmail.com" class="social-tile glass rounded-xl px-5 py-4 flex items-center justify-center gap-2.5 text-sm font-medium">
           <i class="fa-solid fa-envelope text-base"></i> Email Saya
         </a>
       </div>
     </header>
 
-    <section id="tentang" class="mt-20 sm:mt-28 scroll-mt-20 fade-up" style="animation-delay:.1s">
-      <div class="glass rounded-3xl p-7 sm:p-12 relative overflow-hidden">
+    <main>
+    <section id="tentang" class="mt-20 sm:mt-28 scroll-mt-20 reveal">
+      <div class="glass spot rounded-3xl p-7 sm:p-12 relative overflow-hidden">
         <p class="font-mono text-xs eyebrow uppercase mb-5" style="color:var(--flame)">
           <i class="fa-solid fa-user mr-1.5"></i> Tentang Saya
         </p>
@@ -206,7 +128,7 @@
       </div>
     </section>
 
-    <section id="portofolio" class="mt-16 sm:mt-24 scroll-mt-20 fade-up" style="animation-delay:.15s">
+    <section id="portofolio" class="mt-16 sm:mt-24 scroll-mt-20 reveal">
       <div class="flex items-end justify-between gap-4 mb-7">
         <div class="flex items-center gap-3">
           <i class="fa-solid fa-briefcase" style="color:var(--flame)"></i>
@@ -217,7 +139,7 @@
       <div class="rule mb-7"></div>
 
       <div class="grid grid-cols-1 gap-5">
-        <article class="blueprint-card glass glass-hover rounded-2xl p-6 sm:p-8 flex flex-col">
+        <article class="blueprint-card glass glass-hover spot rounded-2xl p-6 sm:p-8 flex flex-col">
           <div class="flex items-start justify-between mb-5">
             <span class="w-11 h-11 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg, var(--flame-soft), transparent); border:1px solid var(--border-strong)">
               <i class="fa-solid fa-building-columns" style="color:var(--flame)"></i>
@@ -243,7 +165,7 @@
       </div>
     </section>
 
-    <section id="sertifikasi" class="mt-16 sm:mt-24 scroll-mt-20 fade-up" style="animation-delay:.2s">
+    <section id="sertifikasi" class="mt-16 sm:mt-24 scroll-mt-20 reveal">
       <div class="flex items-center gap-3 mb-7">
         <i class="fa-solid fa-award" style="color:var(--ember)"></i>
         <h2 class="font-display text-2xl sm:text-3xl font-semibold text-white">Sertifikasi &amp; Lisensi</h2>
@@ -251,7 +173,7 @@
       <div class="rule mb-7"></div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <a href="cjwd.png" target="_blank" rel="noopener" class="glass glass-hover rounded-2xl p-6 flex items-center gap-4 group">
+        <a href="cjwd.png" target="_blank" rel="noopener" class="blueprint-card glass glass-hover spot rounded-2xl p-6 flex items-center gap-4 group">
           <span class="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg, #0e7fb0, var(--flame))">
             <i class="fa-solid fa-certificate text-[#04121a]"></i>
           </span>
@@ -261,7 +183,7 @@
           </div>
           <i class="fa-solid fa-arrow-up-right-from-square text-slate-500 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
         </a>
-        <a href="cjmd.png" target="_blank" rel="noopener" class="glass glass-hover rounded-2xl p-6 flex items-center gap-4 group">
+        <a href="cjmd.png" target="_blank" rel="noopener" class="blueprint-card glass glass-hover spot rounded-2xl p-6 flex items-center gap-4 group">
           <span class="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg, #b4501f, var(--ember))">
             <i class="fa-solid fa-certificate text-[#1a0c02]"></i>
           </span>
@@ -274,7 +196,7 @@
       </div>
     </section>
 
-    <section id="keahlian" class="mt-16 sm:mt-24 scroll-mt-20 fade-up" style="animation-delay:.25s">
+    <section id="keahlian" class="mt-16 sm:mt-24 scroll-mt-20 reveal">
       <div class="flex items-center gap-3 mb-7">
         <i class="fa-solid fa-layer-group" style="color:var(--flame)"></i>
         <h2 class="font-display text-2xl sm:text-3xl font-semibold text-white">Keahlian &amp; Teknologi</h2>
@@ -282,8 +204,8 @@
       <div class="rule mb-7"></div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="glass rounded-2xl p-6">
-          <p class="font-mono text-[11px] uppercase tracking-wider mb-4" style="color:#9fe6ff">Web Development</p>
+        <div class="blueprint-card glass spot rounded-2xl p-6">
+          <p class="font-mono text-[11px] uppercase tracking-wider mb-4" style="color:#9fe6ff"><i class="fa-solid fa-code mr-1.5"></i>Web Development</p>
           <div class="flex flex-wrap gap-2.5">
             <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">PHP</span>
             <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Laravel</span>
@@ -293,8 +215,8 @@
           </div>
         </div>
 
-        <div class="glass rounded-2xl p-6">
-          <p class="font-mono text-[11px] uppercase tracking-wider mb-4" style="color:#ffc79a">Infrastructure</p>
+        <div class="blueprint-card glass spot rounded-2xl p-6">
+          <p class="font-mono text-[11px] uppercase tracking-wider mb-4" style="color:#ffc79a"><i class="fa-solid fa-server mr-1.5"></i>Infrastructure</p>
           <div class="flex flex-wrap gap-2.5">
             <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Linux</span>
             <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Nginx</span>
@@ -303,8 +225,8 @@
           </div>
         </div>
 
-        <div class="glass rounded-2xl p-6">
-          <p class="font-mono text-[11px] uppercase tracking-wider mb-4" style="color:#d6c8ff">Design &amp; Security</p>
+        <div class="blueprint-card glass spot rounded-2xl p-6">
+          <p class="font-mono text-[11px] uppercase tracking-wider mb-4" style="color:#d6c8ff"><i class="fa-solid fa-shield-halved mr-1.5"></i>Design &amp; Security</p>
           <div class="flex flex-wrap gap-2.5">
             <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Figma (UI/UX)</span>
             <span class="badge cursor-default text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">Burp Suite</span>
@@ -313,13 +235,23 @@
         </div>
       </div>
     </section>
+    </main>
 
-    <footer class="mt-20 sm:mt-28 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono fade-up" style="animation-delay:.3s">
-      <p>© 2026 Moh. Jevon Attaillah — Politeknik Negeri Banyuwangi</p>
-      <a href="mailto:mohjevonattaillah@gmail.com" class="hover:text-[color:var(--flame)] transition-colors">mohjevonattaillah@gmail.com</a>
+    <footer class="mt-20 sm:mt-28 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono reveal">
+      <p>© <span data-year>2026</span> Moh. Jevon Attaillah — Politeknik Negeri Banyuwangi</p>
+      <a href="mailto:mohjevonattaillah@gmail.com" data-copy-email="mohjevonattaillah@gmail.com" class="hover:text-[color:var(--flame)] transition-colors">mohjevonattaillah@gmail.com</a>
     </footer>
 
   </div>
 
+  <!-- Back to top -->
+  <button type="button" class="back-to-top" data-back-to-top aria-label="Kembali ke atas">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Toast stack -->
+  <div class="toast-stack" data-toast-stack aria-live="polite"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
