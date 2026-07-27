@@ -1,141 +1,149 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio Proyek — Moh. Jevon Attaillah</title>
-  <meta name="description" content="Studi kasus Sistem Digitalisasi Rumah Kebangsaan Banyuwangi oleh Moh. Jevon Attaillah — arsitektur MVC dengan Laravel & MySQL.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Proyek — Moh. Jevon Attaillah</title>
+<meta name="description" content="Studi kasus Sistem Digitalisasi Rumah Kebangsaan Banyuwangi oleh Moh. Jevon Attaillah — arsitektur MVC dengan Laravel & MySQL.">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="min-h-screen antialiased">
 
-  <!-- Scroll progress -->
-  <div class="scroll-progress" data-scroll-progress></div>
+<!-- Scroll progress -->
+<div class="scroll-progress" data-scroll-progress></div>
 
-  <!-- Slim sticky nav (kept minimal here — this is a sub-page) -->
-  <nav data-nav class="site-nav fixed top-0 inset-x-0 z-30 backdrop-blur-lg bg-[#090b0e]/75 border-b border-white/[0.07]" style="box-shadow: 0 1px 0 rgba(56,198,255,0.06)">
-    <div class="max-w-6xl mx-auto px-5 sm:px-8 h-[60px] flex items-center justify-between">
-      <a href="index.html" class="font-display text-sm font-semibold tracking-[.08em] text-white">JA<span style="color:var(--flame)">.</span></a>
-      <div class="hidden sm:flex items-center gap-7 font-mono text-[11px] uppercase tracking-widest text-slate-400">
-        <a href="index.html#tentang" class="hover:text-white transition-colors">Tentang</a>
-        <a href="index.html#portofolio" class="hover:text-white transition-colors">Portofolio</a>
-        <a href="index.html#sertifikasi" class="hover:text-white transition-colors">Sertifikasi</a>
-        <a href="index.html#keahlian" class="hover:text-white transition-colors">Keahlian</a>
-      </div>
-      <div class="hidden sm:block">
-        <a href="mailto:mohjevonattaillah@gmail.com" data-copy-email="mohjevonattaillah@gmail.com" class="font-mono text-[11px] uppercase tracking-widest text-slate-400 hover:text-white transition-colors">Kontak ↗</a>
-      </div>
-      <button type="button" class="nav-toggle" data-nav-toggle aria-label="Buka menu" aria-expanded="false">
-        <span></span>
-      </button>
-    </div>
-    <div class="mobile-menu sm:hidden" data-mobile-menu>
-      <div class="max-w-6xl mx-auto px-5 py-4 flex flex-col gap-1 font-mono text-xs uppercase tracking-widest text-slate-400">
-        <a href="index.html#tentang" class="py-2.5 hover:text-white transition-colors">Tentang</a>
-        <a href="index.html#portofolio" class="py-2.5 hover:text-white transition-colors">Portofolio</a>
-        <a href="index.html#sertifikasi" class="py-2.5 hover:text-white transition-colors">Sertifikasi</a>
-        <a href="index.html#keahlian" class="py-2.5 hover:text-white transition-colors">Keahlian</a>
-        <a href="mailto:mohjevonattaillah@gmail.com" data-copy-email="mohjevonattaillah@gmail.com" class="py-2.5 hover:text-white transition-colors">Kontak ↗</a>
-      </div>
-    </div>
-  </nav>
+<!-- Slim nav — consistent with index.html -->
+<nav data-nav class="site-nav fixed top-0 inset-x-0 z-40">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 h-[76px] flex items-center justify-between">
+    <a href="index.html" class="font-display text-lg font-semibold tracking-tight text-white">Jevon<span class="text-grad">.</span></a>
 
-<div class="max-w-6xl mx-auto px-5 sm:px-8 pt-24 pb-14 sm:pt-28 sm:pb-20">
-
-  <a href="index.html" class="fade-up inline-flex items-center gap-2 text-sm text-slate-400 hover:text-[color:var(--flame)] transition-colors mb-10 font-medium glass hover:border-[rgba(56,198,255,0.35)] rounded-full px-4 py-2 w-fit">
-    <i class="fa-solid fa-arrow-left text-xs"></i> Kembali ke Hub
-  </a>
-
-  <header class="relative fade-up" style="animation-delay:.05s">
-    <svg class="contours -z-10 -top-24 -left-16" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <g fill="none" stroke="#38c6ff" stroke-width="0.6">
-        <path d="M400,20 C220,20 90,110 90,220 C90,330 220,400 400,400 C580,400 710,330 710,220 C710,110 580,20 400,20 Z" opacity="0.16"/>
-        <path d="M400,55 C250,55 140,130 140,220 C140,310 250,365 400,365 C550,365 660,310 660,220 C660,130 550,55 400,55 Z" opacity="0.24"/>
-        <path d="M400,90 C280,90 190,150 190,220 C190,290 280,330 400,330 C520,330 610,290 610,220 C610,150 520,90 400,90 Z" opacity="0.35" stroke="#7fe3ff"/>
-      </g>
-    </svg>
-    <p class="font-mono text-xs uppercase mb-3" style="letter-spacing:.2em; color:var(--flame)">Studi Kasus · Pengembangan Sistem</p>
-    <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight grad-text mb-5 max-w-3xl">
-      Sistem Digitalisasi Rumah Kebangsaan Banyuwangi
-    </h1>
-    <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-2xl">
-      Portal informasi &amp; dokumentasi berbasis web dengan arsitektur MVC (Laravel &amp; MySQL), dikembangkan bersama Tim Javas Navasena. Saya berperan sebagai Ketua Tim Pengembang dan Product Owner, mengurus perancangan basis data hingga implementasi Frontend &amp; Backend.
-    </p>
-
-    <div class="flex flex-wrap gap-2 mt-6">
-      <span class="badge text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">Laravel</span>
-      <span class="badge text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">MySQL</span>
-      <span class="badge text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">MVC Architecture</span>
-      <span class="badge text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">Team Leadership</span>
-      <span class="badge text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">Product Ownership</span>
+    <div class="hidden lg:flex items-center gap-8 font-mono text-[11px] uppercase tracking-widest text-slate-300">
+      <a href="index.html#tentang" class="nav-link">Tentang</a>
+      <a href="index.html#keahlian" class="nav-link">Keahlian</a>
+      <a href="index.html#proyek" class="nav-link">Proyek</a>
+      <a href="index.html#kontak" class="nav-link">Kontak</a>
     </div>
 
-    <a href="https://www.figma.com/proto/iLvQfpMUox5JnKo6LRkCh2/Kelompok-3-%E2%80%93-PBL-TRPL-2D?page-id=899%3A1688&node-id=1480-8682&viewport=-2639%2C1227%2C0.15&t=ZFkFekydsxBX4H3y-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1499%3A4242"
-       target="_blank" rel="noopener"
-       class="cta-primary cta-pulse group mt-9 inline-flex items-center gap-3 rounded-2xl px-6 py-4 text-[#04121a] font-semibold shadow-lg">
-      <i class="fa-brands fa-figma text-lg"></i>
-      <span>Coba Prototype di Figma</span>
-      <i class="fa-solid fa-arrow-up-right-from-square text-sm opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"></i>
+    <a href="index.html#kontak" class="hidden sm:inline-flex gradient-border-btn">
+      <span>Let's Connect <i class="fa-solid fa-arrow-right text-xs ml-1"></i></span>
     </a>
-  </header>
 
-  <div class="rule mt-16 sm:mt-20"></div>
+    <button type="button" class="nav-toggle" data-nav-toggle aria-label="Buka menu" aria-expanded="false">
+      <span></span>
+    </button>
+  </div>
 
-  <main>
+  <div class="mobile-menu lg:hidden" data-mobile-menu>
+    <div class="max-w-6xl mx-auto px-5 py-4 flex flex-col gap-1 font-mono text-xs uppercase tracking-widest text-slate-300">
+      <a href="index.html#tentang" class="nav-link py-2.5">Tentang</a>
+      <a href="index.html#keahlian" class="nav-link py-2.5">Keahlian</a>
+      <a href="index.html#proyek" class="nav-link py-2.5">Proyek</a>
+      <a href="index.html#kontak" class="nav-link py-2.5">Kontak</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Case-study hero (cosmic, slimmer than home hero) -->
+<header class="hero-cosmic relative overflow-hidden">
+  <div class="cosmic-blob cosmic-blob-1" style="width:260px;height:260px;"></div>
+  <div class="cosmic-blob cosmic-blob-2" style="width:220px;height:220px;"></div>
+  <div class="stars" aria-hidden="true"></div>
+
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 pt-[132px] pb-16 sm:pt-[156px] sm:pb-20 relative z-10">
+    <a href="index.html" class="back-link mb-8" data-animate="fade-in">
+      <i class="fa-solid fa-arrow-left text-xs"></i> Kembali ke Hub
+    </a>
+
+    <div data-animate="slide-up">
+      <p class="font-mono text-xs uppercase tracking-[.22em] text-violet-300 mb-4">Studi Kasus · Pengembangan Sistem</p>
+      <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-5 max-w-3xl leading-tight">
+        Sistem Digitalisasi <span class="text-grad">Rumah Kebangsaan Banyuwangi</span>
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-2xl">
+        Portal informasi &amp; dokumentasi berbasis web dengan arsitektur MVC (Laravel &amp; MySQL), dikembangkan bersama Tim Javas Navasena. Saya berperan sebagai Ketua Tim Pengembang dan Product Owner, mengurus perancangan basis data hingga implementasi Frontend &amp; Backend.
+      </p>
+
+      <div class="flex flex-wrap gap-2 mt-6">
+        <span class="pill-badge">Laravel</span>
+        <span class="pill-badge">MySQL</span>
+        <span class="pill-badge">MVC Architecture</span>
+        <span class="pill-badge">Team Leadership</span>
+        <span class="pill-badge">Product Ownership</span>
+      </div>
+
+      <a href="https://www.figma.com/proto/iLvQfpMUox5JnKo6LRkCh2/Kelompok-3-%E2%80%93-PBL-TRPL-2D?page-id=899%3A1688&node-id=1480-8682&viewport=-2639%2C1227%2C0.15&t=ZFkFekydsxBX4H3y-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1499%3A4242"
+         target="_blank" rel="noopener" class="cta-glow mt-9">
+        <i class="fa-brands fa-figma"></i>
+        <span>Coba Prototype di Figma</span>
+        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </div>
+  </div>
+
+  <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z" fill="var(--bg)"></path>
+  </svg>
+</header>
+
+<div class="max-w-5xl mx-auto px-5 sm:px-8 pb-16 sm:pb-20">
+<main>
+
   <!-- 01 — Ringkasan Proyek -->
-  <section class="mt-12 sm:mt-14 reveal">
+  <section class="mt-4 sm:mt-8" data-animate="fade-in">
     <div class="flex items-baseline gap-4 mb-3">
-      <span class="stage-num text-4xl sm:text-5xl font-semibold leading-none" style="--stage-glow: rgba(56,198,255,0.35); -webkit-text-stroke-color: rgba(56,198,255,0.5);">01</span>
-      <p class="font-mono text-xs uppercase tracking-widest" style="color:var(--flame)">Ringkasan Proyek</p>
+      <span class="stage-num text-4xl sm:text-5xl font-semibold leading-none" style="--stage-glow: rgba(56,189,248,0.35); -webkit-text-stroke-color: rgba(56,189,248,0.5);">01</span>
+      <p class="font-mono text-xs uppercase tracking-widest text-sky-300">Ringkasan Proyek</p>
     </div>
     <p class="text-sm text-slate-400 leading-relaxed max-w-3xl">
       Proyek ini adalah portal web resmi untuk Rumah Kebangsaan Banyuwangi — dibangun agar pengelola bisa mempublikasikan berita, artikel, dan pengumuman secara mandiri, sekaligus menyediakan ruang interaksi publik seperti komentar dan unggah foto kunjungan. Sistem dibangun dengan pola arsitektur MVC menggunakan Laravel, dilengkapi panel admin dan super admin dengan hak akses berjenjang.
     </p>
   </section>
 
+  <div class="rule my-14 sm:my-16"></div>
+
   <!-- 02 — Peran & Tanggung Jawab -->
-  <section class="mt-14 sm:mt-16 reveal">
+  <section data-animate="fade-in">
     <div class="flex items-baseline gap-4 mb-3">
-      <span class="stage-num text-4xl sm:text-5xl font-semibold leading-none" style="--stage-glow: rgba(214,200,255,0.35); -webkit-text-stroke-color: rgba(214,200,255,0.5);">02</span>
-      <p class="font-mono text-xs uppercase tracking-widest" style="color:#d6c8ff">Peran &amp; Tanggung Jawab</p>
+      <span class="stage-num text-4xl sm:text-5xl font-semibold leading-none" style="--stage-glow: rgba(168,85,247,0.35); -webkit-text-stroke-color: rgba(168,85,247,0.5);">02</span>
+      <p class="font-mono text-xs uppercase tracking-widest text-violet-300">Peran &amp; Tanggung Jawab</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl">
-      <div class="blueprint-card glass glass-hover spot rounded-2xl p-6 flex gap-4">
-        <span class="icon-tile" style="background:linear-gradient(135deg, #0e7fb0, var(--flame))">
-          <i class="fa-solid fa-users text-[#04121a]"></i>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mt-6">
+      <div class="role-card p-6 flex gap-4">
+        <span class="icon-tile" style="background:linear-gradient(135deg,#1d4ed8,#38bdf8)">
+          <i class="fa-solid fa-users text-[#0a0618]"></i>
         </span>
         <div>
           <h3 class="font-semibold text-white text-sm mb-1">Ketua Tim &amp; Product Owner</h3>
           <p class="text-xs text-slate-400 leading-relaxed">Memimpin Tim Javas Navasena, menyusun prioritas fitur, dan menjembatani komunikasi dengan mitra/stakeholder.</p>
         </div>
       </div>
-      <div class="blueprint-card glass glass-hover spot rounded-2xl p-6 flex gap-4">
-        <span class="icon-tile" style="background:linear-gradient(135deg, #b4501f, var(--ember))">
-          <i class="fa-solid fa-database text-[#1a0c02]"></i>
+      <div class="role-card p-6 flex gap-4">
+        <span class="icon-tile" style="background:linear-gradient(135deg,#7e22ce,#c4b5fd)">
+          <i class="fa-solid fa-database text-[#0a0618]"></i>
         </span>
         <div>
           <h3 class="font-semibold text-white text-sm mb-1">Perancangan Basis Data</h3>
           <p class="text-xs text-slate-400 leading-relaxed">Merancang skema tabel untuk berita, komentar, pesan, pengguna, dan alur reset password berbasis OTP.</p>
         </div>
       </div>
-      <div class="blueprint-card glass glass-hover spot rounded-2xl p-6 flex gap-4">
-        <span class="icon-tile" style="background:linear-gradient(135deg, #0e7fb0, var(--flame))">
-          <i class="fa-solid fa-code text-[#04121a]"></i>
+      <div class="role-card p-6 flex gap-4">
+        <span class="icon-tile" style="background:linear-gradient(135deg,#be123c,#fb7185)">
+          <i class="fa-solid fa-code text-[#0a0618]"></i>
         </span>
         <div>
           <h3 class="font-semibold text-white text-sm mb-1">Pengembangan Backend</h3>
           <p class="text-xs text-slate-400 leading-relaxed">Membangun controller, model, dan middleware autentikasi/otorisasi dengan Laravel (MVC).</p>
         </div>
       </div>
-      <div class="blueprint-card glass glass-hover spot rounded-2xl p-6 flex gap-4">
-        <span class="icon-tile" style="background:linear-gradient(135deg, #b4501f, var(--ember))">
-          <i class="fa-solid fa-layer-group text-[#1a0c02]"></i>
+      <div class="role-card p-6 flex gap-4">
+        <span class="icon-tile" style="background:linear-gradient(135deg,#1d4ed8,#a855f7)">
+          <i class="fa-solid fa-layer-group text-[#0a0618]"></i>
         </span>
         <div>
           <h3 class="font-semibold text-white text-sm mb-1">Pengembangan Frontend</h3>
@@ -145,77 +153,82 @@
     </div>
   </section>
 
+  <div class="rule my-14 sm:my-16"></div>
+
   <!-- 03 — Fitur Utama -->
-  <section class="mt-14 sm:mt-16 reveal">
+  <section data-animate="fade-in">
     <div class="flex items-baseline gap-4 mb-3">
-      <span class="stage-num text-4xl sm:text-5xl font-semibold leading-none" style="--stage-glow: rgba(255,154,82,0.4); -webkit-text-stroke-color: rgba(255,154,82,0.55);">03</span>
-      <p class="font-mono text-xs uppercase tracking-widest" style="color:var(--ember)">Fitur Utama</p>
+      <span class="stage-num text-4xl sm:text-5xl font-semibold leading-none" style="--stage-glow: rgba(244,63,94,0.4); -webkit-text-stroke-color: rgba(244,63,94,0.55);">03</span>
+      <p class="font-mono text-xs uppercase tracking-widest text-rose-300">Fitur Utama</p>
     </div>
-    <p class="text-sm text-slate-400 mb-6 max-w-2xl">Fitur dibagi menjadi tiga lapisan akses: publik, autentikasi, dan panel admin.</p>
+    <p class="text-sm text-slate-400 mb-6 max-w-2xl mt-2">Fitur dibagi menjadi tiga lapisan akses: publik, autentikasi, dan panel admin.</p>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl">
-      <div class="blueprint-card glass spot rounded-2xl p-6">
-        <p class="font-mono text-[11px] uppercase tracking-widest mb-3" style="color:var(--flame)">Publik</p>
+      <div class="feature-card">
+        <p class="font-mono text-[11px] uppercase tracking-widest mb-3 text-sky-300">Publik</p>
         <ul class="space-y-2 text-sm text-slate-300">
-          <li class="flex gap-2"><i class="fa-solid fa-newspaper text-xs mt-1" style="color:var(--flame)"></i> Berita, artikel &amp; pengumuman</li>
-          <li class="flex gap-2"><i class="fa-solid fa-comments text-xs mt-1" style="color:var(--flame)"></i> Komentar dengan moderasi</li>
-          <li class="flex gap-2"><i class="fa-solid fa-camera text-xs mt-1" style="color:var(--flame)"></i> Unggah foto kunjungan</li>
-          <li class="flex gap-2"><i class="fa-solid fa-images text-xs mt-1" style="color:var(--flame)"></i> Galeri &amp; profil tokoh</li>
+          <li class="flex gap-2"><i class="fa-solid fa-newspaper text-xs mt-1 text-sky-300"></i> Berita, artikel &amp; pengumuman</li>
+          <li class="flex gap-2"><i class="fa-solid fa-comments text-xs mt-1 text-sky-300"></i> Komentar dengan moderasi</li>
+          <li class="flex gap-2"><i class="fa-solid fa-camera text-xs mt-1 text-sky-300"></i> Unggah foto kunjungan</li>
+          <li class="flex gap-2"><i class="fa-solid fa-images text-xs mt-1 text-sky-300"></i> Galeri &amp; profil tokoh</li>
         </ul>
       </div>
-      <div class="blueprint-card glass spot rounded-2xl p-6">
-        <p class="font-mono text-[11px] uppercase tracking-widest mb-3" style="color:#d6c8ff">Autentikasi</p>
+      <div class="feature-card">
+        <p class="font-mono text-[11px] uppercase tracking-widest mb-3 text-violet-300">Autentikasi</p>
         <ul class="space-y-2 text-sm text-slate-300">
-          <li class="flex gap-2"><i class="fa-solid fa-right-to-bracket text-xs mt-1" style="color:#d6c8ff"></i> Login &amp; registrasi</li>
-          <li class="flex gap-2"><i class="fa-solid fa-key text-xs mt-1" style="color:#d6c8ff"></i> Reset password via kode OTP</li>
-          <li class="flex gap-2"><i class="fa-solid fa-user-shield text-xs mt-1" style="color:#d6c8ff"></i> Hak akses berjenjang (admin/super admin)</li>
+          <li class="flex gap-2"><i class="fa-solid fa-right-to-bracket text-xs mt-1 text-violet-300"></i> Login &amp; registrasi</li>
+          <li class="flex gap-2"><i class="fa-solid fa-key text-xs mt-1 text-violet-300"></i> Reset password via kode OTP</li>
+          <li class="flex gap-2"><i class="fa-solid fa-user-shield text-xs mt-1 text-violet-300"></i> Hak akses berjenjang (admin/super admin)</li>
         </ul>
       </div>
-      <div class="blueprint-card glass spot rounded-2xl p-6">
-        <p class="font-mono text-[11px] uppercase tracking-widest mb-3" style="color:var(--ember)">Panel Admin</p>
+      <div class="feature-card">
+        <p class="font-mono text-[11px] uppercase tracking-widest mb-3 text-rose-300">Panel Admin</p>
         <ul class="space-y-2 text-sm text-slate-300">
-          <li class="flex gap-2"><i class="fa-solid fa-chart-line text-xs mt-1" style="color:var(--ember)"></i> Dashboard statistik konten</li>
-          <li class="flex gap-2"><i class="fa-solid fa-pen-to-square text-xs mt-1" style="color:var(--ember)"></i> CRUD berita &amp; galeri</li>
-          <li class="flex gap-2"><i class="fa-solid fa-clipboard-check text-xs mt-1" style="color:var(--ember)"></i> Moderasi komentar &amp; foto</li>
-          <li class="flex gap-2"><i class="fa-solid fa-envelope text-xs mt-1" style="color:var(--ember)"></i> Manajemen pesan masuk</li>
+          <li class="flex gap-2"><i class="fa-solid fa-chart-line text-xs mt-1 text-rose-300"></i> Dashboard statistik konten</li>
+          <li class="flex gap-2"><i class="fa-solid fa-pen-to-square text-xs mt-1 text-rose-300"></i> CRUD berita &amp; galeri</li>
+          <li class="flex gap-2"><i class="fa-solid fa-clipboard-check text-xs mt-1 text-rose-300"></i> Moderasi komentar &amp; foto</li>
+          <li class="flex gap-2"><i class="fa-solid fa-envelope text-xs mt-1 text-rose-300"></i> Manajemen pesan masuk</li>
         </ul>
       </div>
     </div>
   </section>
+
+  <div class="rule my-14 sm:my-16"></div>
 
   <!-- 04 — Tech Stack -->
-  <section class="mt-14 sm:mt-16 reveal">
+  <section data-animate="fade-in">
     <div class="flex items-baseline gap-4 mb-3">
-      <span class="stage-num text-4xl sm:text-5xl font-semibold leading-none" style="--stage-glow: rgba(56,198,255,0.35); -webkit-text-stroke-color: rgba(56,198,255,0.5);">04</span>
-      <p class="font-mono text-xs uppercase tracking-widest" style="color:var(--flame)">Tech Stack</p>
+      <span class="stage-num text-4xl sm:text-5xl font-semibold leading-none" style="--stage-glow: rgba(56,189,248,0.35); -webkit-text-stroke-color: rgba(56,189,248,0.5);">04</span>
+      <p class="font-mono text-xs uppercase tracking-widest text-sky-300">Tech Stack</p>
     </div>
-    <div class="flex flex-wrap gap-2 max-w-3xl">
-      <span class="badge text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">PHP</span>
-      <span class="badge text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">Laravel</span>
-      <span class="badge text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">MySQL</span>
-      <span class="badge text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">Eloquent ORM</span>
-      <span class="badge text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">Blade Templating</span>
-      <span class="badge text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">Middleware Kustom (Role-based)</span>
-      <span class="badge text-xs font-mono px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">Figma</span>
+    <div class="flex flex-wrap gap-2 max-w-3xl mt-6">
+      <span class="pill-badge">PHP</span>
+      <span class="pill-badge">Laravel</span>
+      <span class="pill-badge">MySQL</span>
+      <span class="pill-badge">Eloquent ORM</span>
+      <span class="pill-badge">Blade Templating</span>
+      <span class="pill-badge">Middleware Kustom (Role-based)</span>
+      <span class="pill-badge">Figma</span>
     </div>
   </section>
-  </main>
 
-  <footer class="mt-20 sm:mt-24 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono reveal">
-    <p>© <span data-year>2026</span> Moh. Jevon Attaillah — Politeknik Negeri Banyuwangi</p>
-    <a href="mailto:mohjevonattaillah@gmail.com" data-copy-email="mohjevonattaillah@gmail.com" class="hover:text-[color:var(--flame)] transition-colors">mohjevonattaillah@gmail.com</a>
-  </footer>
+</main>
+
+<footer class="mt-20 sm:mt-24 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono" data-animate="fade-in">
+  <p>© <span data-year>2026</span> Moh. Jevon Attaillah — Politeknik Negeri Banyuwangi</p>
+  <a href="mailto:mohjevonattaillah@gmail.com" data-copy-email="mohjevonattaillah@gmail.com" class="hover:text-violet-300 transition-colors">mohjevonattaillah@gmail.com</a>
+</footer>
 
 </div>
 
-  <!-- Back to top -->
-  <button type="button" class="back-to-top" data-back-to-top aria-label="Kembali ke atas">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
+<!-- Back to top -->
+<button type="button" class="back-to-top" data-back-to-top aria-label="Kembali ke atas">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
 
-  <!-- Toast stack -->
-  <div class="toast-stack" data-toast-stack aria-live="polite"></div>
+<!-- Toast stack -->
+<div class="toast-stack" data-toast-stack aria-live="polite"></div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
