@@ -389,7 +389,99 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--c-violet); outl
 @media (prefers-reduced-motion: reduce) { [data-animate] { opacity: 1 !important; transform: none !important; transition: none !important; } }
 
 /* =========================================================
-   9. Scroll progress / back-to-top / toast
+   9. Case-study sub-page components (portfolio.html)
+   ========================================================= */
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 18px; border-radius: 999px;
+  font-size: 13px; font-weight: 500; color: var(--muted);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  transition: color .25s ease, border-color .25s ease, background .25s ease;
+}
+.back-link:hover { color: #fff; border-color: var(--border-strong); background: rgba(168,85,247,0.08); }
+
+.rule { height: 1px; background: linear-gradient(90deg, var(--border-strong), transparent); position: relative; }
+.rule::before {
+  content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--c-violet); box-shadow: 0 0 9px 1px rgba(168,85,247,0.65);
+}
+
+.stage-num {
+  font-family: 'Fraunces', serif;
+  font-variant-numeric: tabular-nums;
+  -webkit-text-stroke: 1px var(--border-strong);
+  color: transparent;
+  filter: drop-shadow(0 0 14px var(--stage-glow, transparent));
+  transition: filter .4s ease;
+}
+
+.icon-tile {
+  width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.role-card {
+  border-radius: 1.25rem;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01));
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s ease, box-shadow .35s ease;
+}
+.role-card:hover { transform: translateY(-4px); border-color: var(--border-strong); box-shadow: 0 26px 50px -24px rgba(0,0,0,0.7), 0 30px 60px -30px rgba(168,85,247,0.28); }
+
+.feature-card {
+  border-radius: 1.25rem; padding: 24px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.008));
+}
+
+.pill-badge {
+  font-size: 12px; font-family: 'JetBrains Mono', monospace;
+  padding: 6px 14px; border-radius: 999px;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+  color: var(--muted);
+  transition: transform .25s ease, border-color .25s ease, color .25s ease, background .25s ease;
+}
+.pill-badge:hover { transform: translateY(-2px); border-color: var(--c-violet); color: #d8c9fb; background: rgba(168,85,247,0.1); }
+
+.status-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 16px; border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .06em;
+  background: rgba(251,191,36,0.08);
+  border: 1px solid rgba(251,191,36,0.35);
+  color: #fcd34d;
+}
+.status-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #fbbf24;
+  box-shadow: 0 0 0 0 rgba(251,191,36,0.6);
+  animation: statusPulse 1.8s ease-out infinite;
+}
+@keyframes statusPulse {
+  0% { box-shadow: 0 0 0 0 rgba(251,191,36,0.55); }
+  70% { box-shadow: 0 0 0 8px rgba(251,191,36,0); }
+  100% { box-shadow: 0 0 0 0 rgba(251,191,36,0); }
+}
+@media (prefers-reduced-motion: reduce) { .status-dot { animation: none; } }
+
+.progress-card {
+  border-radius: 1.25rem; padding: 26px;
+  border: 1.5px dashed rgba(251,191,36,0.3);
+  background: linear-gradient(180deg, rgba(251,191,36,0.05), rgba(255,255,255,0.01));
+}
+.progress-track {
+  height: 6px; border-radius: 999px; background: rgba(255,255,255,0.06);
+  overflow: hidden; margin-top: 10px;
+}
+.progress-fill {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+}
+
+/* =========================================================
+   10. Scroll progress / back-to-top / toast
    ========================================================= */
 .scroll-progress {
   position: fixed; top: 0; left: 0; height: 3px; width: 0%;

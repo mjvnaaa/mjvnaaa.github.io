@@ -229,12 +229,32 @@
     });
   });
 
-  /* ---------- 12. Contact form (client-side only) ---------- */
+  /* ---------- 12. Contact form → opens visitor's email app (mailto) ---------- */
+  const CONTACT_EMAIL = "mohjevonattaillah@gmail.com";
   const contactForm = document.querySelector("[data-contact-form]");
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      showToast("Pesan berhasil dikirim, terima kasih!", "fa-paper-plane");
+
+      const firstName = contactForm.querySelector("[name='first_name']").value.trim();
+      const lastName = contactForm.querySelector("[name='last_name']").value.trim();
+      const email = contactForm.querySelector("[name='email']").value.trim();
+      const message = contactForm.querySelector("[name='message']").value.trim();
+
+      const subject = `Pesan dari Portofolio — ${firstName} ${lastName}`.trim();
+      const body =
+        `Nama: ${firstName} ${lastName}\n` +
+        `Email: ${email}\n\n` +
+        `Pesan:\n${message}`;
+
+      const mailtoUrl =
+        `mailto:${CONTACT_EMAIL}` +
+        `?subject=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body)}`;
+
+      showToast("Membuka aplikasi email Anda...", "fa-paper-plane");
+      window.location.href = mailtoUrl;
+
       contactForm.reset();
     });
   }
