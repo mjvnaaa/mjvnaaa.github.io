@@ -161,7 +161,7 @@
     }
   }
 
-  /* ---------- 9. Infinite skills slider ---------- */
+  /* ---------- 9. Manual skills slider (prev/next buttons) ---------- */
   const skillsData = [
     { icon: "fa-brands fa-php", label: "PHP" },
     { icon: "fa-brands fa-laravel", label: "Laravel" },
@@ -177,9 +177,13 @@
     { icon: "fa-solid fa-network-wired", label: "Web Proxy" },
   ];
 
-  const skillSets = document.querySelectorAll("[data-skills-set]");
-  if (skillSets.length) {
-    const markup = skillsData
+  const skillsTrack = document.querySelector("[data-skills-track]");
+  const skillsViewport = document.querySelector("[data-skills-viewport]");
+  const skillsPrevBtn = document.querySelector("[data-skills-prev]");
+  const skillsNextBtn = document.querySelector("[data-skills-next]");
+
+  if (skillsTrack && skillsViewport) {
+    skillsTrack.innerHTML = skillsData
       .map(
         (s) => `
         <div class="skill-pill">
@@ -188,7 +192,24 @@
         </div>`
       )
       .join("");
-    skillSets.forEach((set) => (set.innerHTML = markup));
+
+    function updateSkillsNavState() {
+      if (!skillsPrevBtn || !skillsNextBtn) return;
+      const maxScroll = skillsViewport.scrollWidth - skillsViewport.clientWidth - 2;
+      skillsPrevBtn.disabled = skillsViewport.scrollLeft <= 2;
+      skillsNextBtn.disabled = skillsViewport.scrollLeft >= maxScroll;
+    }
+
+    function scrollSkillsBy(direction) {
+      const step = Math.min(skillsViewport.clientWidth * 0.7, 420);
+      skillsViewport.scrollBy({ left: direction * step, behavior: "smooth" });
+    }
+
+    if (skillsPrevBtn) skillsPrevBtn.addEventListener("click", () => scrollSkillsBy(-1));
+    if (skillsNextBtn) skillsNextBtn.addEventListener("click", () => scrollSkillsBy(1));
+    skillsViewport.addEventListener("scroll", updateSkillsNavState, { passive: true });
+    window.addEventListener("resize", updateSkillsNavState);
+    updateSkillsNavState();
   }
 
   /* ---------- 10. Portfolio tabs ---------- */

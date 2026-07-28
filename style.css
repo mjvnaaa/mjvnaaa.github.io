@@ -258,14 +258,32 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--c-violet); outl
   background: linear-gradient(180deg, #150c2e, #0d0620);
   border: 1px solid var(--border);
 }
-.skills-track { display: flex; }
-.skills-set {
-  display: flex; flex-shrink: 0; gap: 20px;
-  animation: skillsScroll 26s linear infinite;
+.skills-viewport {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-@keyframes skillsScroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
-.skills-stage:hover .skills-set { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) { .skills-set { animation: none; } }
+.skills-viewport::-webkit-scrollbar { display: none; }
+.skills-track { display: flex; gap: 20px; width: max-content; }
+
+.skills-nav-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(21,12,46,0.92);
+  border: 1px solid var(--border-strong);
+  color: #fff; font-size: 14px;
+  z-index: 3;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 14px 30px -14px rgba(0,0,0,0.7);
+  transition: border-color .25s ease, background .25s ease, transform .25s ease, opacity .25s ease;
+}
+.skills-nav-btn:hover { border-color: var(--c-violet); background: rgba(168,85,247,0.16); transform: translateY(-50%) scale(1.06); }
+.skills-nav-btn:disabled { opacity: 0.3; pointer-events: none; }
+.skills-nav-prev { left: 10px; }
+.skills-nav-next { right: 10px; }
+@media (max-width: 640px) { .skills-nav-btn { width: 38px; height: 38px; font-size: 12px; } }
 
 .skill-pill {
   flex-shrink: 0;

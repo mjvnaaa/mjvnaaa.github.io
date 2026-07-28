@@ -137,12 +137,19 @@
     <p class="text-sm text-slate-400 mb-8 max-w-lg">Tools dan teknologi yang saya gunakan sehari-hari untuk membangun produk.</p>
 
     <div class="skills-stage rounded-[2rem] py-12 px-4 sm:px-8 relative overflow-hidden">
-      <div class="skills-track" data-skills-track>
-        <div class="skills-set" data-skills-set>
-          <!-- populated by JS (duplicated for infinite loop) -->
+      <div class="skills-viewport" data-skills-viewport>
+        <div class="skills-track" data-skills-track>
+          <!-- populated by JS -->
         </div>
-        <div class="skills-set" data-skills-set aria-hidden="true"></div>
       </div>
+
+      <button type="button" class="skills-nav-btn skills-nav-prev" data-skills-prev aria-label="Geser ke kiri">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button type="button" class="skills-nav-btn skills-nav-next" data-skills-next aria-label="Geser ke kanan">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
       <div class="skills-fade skills-fade-l"></div>
       <div class="skills-fade skills-fade-r"></div>
     </div>
